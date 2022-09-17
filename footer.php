@@ -2,14 +2,18 @@
 	
   <?php 
   $footer_logo = get_field("footer_logo","option");
-  $social_media = get_social_media();
+  $footer_logo_website = get_field("footer_logo_website","option");
   ?>
   <footer id="colophon" class="site-footer" role="contentinfo">
-    <div class="wrapper wide">
+    <div class="wrapper">
       <div class="flexwrap">
         <?php if ($footer_logo) { ?>
-        <div class="footcol left">
-         <img src="<?php echo $footer_logo['url'] ?>" alt="<?php echo $footer_logo['title'] ?>" class="footlogo"> 
+        <div id="footlogo" class="footcol left">
+          <?php if ($footer_logo_website) { ?>
+            <a href="<?php echo $footer_logo_website ?>" target="_blank"><img src="<?php echo $footer_logo['url'] ?>" alt="<?php echo $footer_logo['title'] ?>" class="footlogo"></a>
+          <?php } else { ?>
+            <img src="<?php echo $footer_logo['url'] ?>" alt="<?php echo $footer_logo['title'] ?>" class="footlogo"> 
+          <?php } ?>
         </div>
         <?php } ?>
 
@@ -31,16 +35,6 @@
             </ul>
             <?php } ?>
           </nav>
-        <?php } ?>
-
-        <?php if ($social_media) { ?>
-        <div class="social-media">
-          <?php foreach ($social_media as $m) { ?>
-            <a href="<?php echo $m['url'] ?>" target="_blank" aria-label="<?php echo $m['type'] ?>"><i class="<?php echo $m['icon'] ?>"></i></a>
-          <?php } ?>
-        </div>
-        <?php } else { ?>
-          <div class="social-media nolinks">&nbsp;</div>
         <?php } ?>
       </div>
     </div>

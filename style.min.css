@@ -1096,6 +1096,8 @@ button:focus{outline:0}
 .fa-youtube-square:before{content:""}
 .sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}
 .sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}
+@font-face{font-family:"Ikiiko";src:url("assets/webfonts/ikiikobonus-webfont.woff2") format("woff2"),url("assets/webfonts/ikiikobonus-webfont.woff") format("woff");font-weight:normal;font-style:normal}
+@font-face{font-family:"Tjoekil";src:url("assets/webfonts/tjoekilkajoe-webfont.woff2") format("woff2"),url("assets/webfonts/tjoekilkajoe-webfont.woff") format("woff");font-weight:normal;font-style:normal}
 /*!
  * animate.css -https://daneden.github.io/animate.css/
  * Version - 3.7.2
@@ -1330,13 +1332,46 @@ a:hover{color:#3788c4}
 .home-buttons .button a{display:block;width:100%;float:left;position:relative;background-position:bottom center;background-size:contain;background-repeat:no-repeat}
 .home-buttons .button a img{width:100%;height:auto;float:left}
 .home-buttons .button a i{display:block;width:100%;background-position:bottom center;background-size:contain;background-repeat:no-repeat;-webkit-transition:all ease-in-out .2s;transition:all ease-in-out .2s}
-.home-buttons .button a .button-text{display:block;width:100%;position:absolute;left:0;bottom:3vw;z-index:10;font-family:"Patrick Hand SC",cursive;font-size:2em;line-height:1.1;text-align:center;text-transform:uppercase;color:#f0d6b5}
+.home-buttons .button a .button-text{display:block;width:100%;position:absolute;left:0;bottom:10vw;z-index:10;font-family:"Tjoekil",cursive;font-size:2.5em;line-height:1.1;letter-spacing:3px;text-align:center;text-transform:uppercase;color:#f0d6b5}
 .home-buttons #registration .e1{position:absolute;bottom:0;left:0;width:100%;height:100%;background-image:url("assets/images/graphics/graphic1_1.svg");background-size:cover;z-index:5;border-top:4px solid #f0d6b5}
 .home-buttons #registration .e2{position:absolute;top:0;left:0;width:100%;height:100%;background-image:url("assets/images/graphics/graphic1_2.svg");background-position:center;z-index:6}
 .home-buttons #registration .e3{position:absolute;top:0;left:0;width:100%;height:100%;background-image:url("assets/images/graphics/graphic1_3.svg");background-position:center}
+.home-buttons path,.home-buttons g{-webkit-transition:all ease .3s;transition:all ease .3s}
+#registration #Path_825,#registration #Path_826{opacity:0;-webkit-transform:translateY(5px);transform:translateY(5px)}
+#registration a:hover #Path_825,#registration a:hover #Path_826{opacity:1;-webkit-transform:translateY(-4px);transform:translateY(-4px)}
+#registration a:hover #Path_755,#registration a:hover #Path_754,#registration a:hover #Path_756,#registration a:hover #Path_755-2,#registration a:hover #Path_757-2,#registration a:hover .st0{-webkit-transform:translateY(-4px);transform:translateY(-4px)}
+#registration a:hover #Rectangle_58{-webkit-transform:translateY(0);transform:translateY(0)}
+#competitions.button a{width:112.5%;left:-12.5%}
+#competitions #Group_365,#competitions #Group_364{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px)}
+#competitions #Group_361{opacity:0;-webkit-transform:translateY(10px);transform:translateY(10px)}
+#competitions a:hover #Path_777,#competitions a:hover #Path_776,#competitions a:hover #Path_77577,#competitions a:hover #Path_774,#competitions a:hover #Path_773{-webkit-transform:translateX(12px);transform:translateX(12px)}
+#competitions a:hover #Group_365,#competitions a:hover #Group_364{opacity:1;-webkit-transform:translateX(-8px);transform:translateX(-8px)}
+#competitions a:hover #Group_361{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}
+#music #Subtraction_2{-webkit-transform:translateY(5px);transform:translateY(5px)}
+#music #Layer_3{opacity:0;-webkit-transform:translateY(0) scale(0,0);transform:translateY(0) scale(0,0);-webkit-transform-origin:50% 50%;transform-origin:50% 50%}
+#music a:hover #Layer_3{opacity:1;-webkit-transform:translateY(-10px) scale(1,1);transform:translateY(-10px) scale(1,1)}
+#music a:hover #Subtraction_2,#music a:hover #Intersection_2{-webkit-transform:translateY(-5px);transform:translateY(-5px)}
 .mobile-menu{display:none}
+.site-footer{width:100%;float:left;background:#9e8c1f}
+.site-footer .wrapper{padding:30px 20px 30px}
+.site-footer .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.site-footer #footlogo{margin-bottom:10px}
+.site-footer #footlogo a,.site-footer #footlogo img{display:inline-block}
+.site-footer #footlogo img{width:180px;height:auto}
+#footer-navigation ul.menu ul{display:none}
+#footer-navigation ul.menu{display:inline-block;margin:0;padding:0;list-style:none;text-align:center}
+#footer-navigation ul.menu>li{display:inline-block}
+#footer-navigation ul.menu a{display:block;text-decoration:none;text-transform:uppercase;color:#f0d6b5;font-size:12px;line-height:1.1;padding:10px 15px 5px}
+#footer-navigation ul.menu a:hover{color:#fff}
 @media(min-width:820px){body{font-size:14px}
 .home-buttons .button{width:33.33%}
+.home-buttons .button a .button-text{bottom:2.5vw}
+.site-footer .wrapper{padding:20px 20px 15px}
+.site-footer .flexwrap{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+.site-footer #footlogo{margin-bottom:0}
+#footer-navigation ul.menu>li{float:left}
+}@media(min-width:960px){#footer-navigation ul.menu a{padding:10px 20px 5px}
+}@media(min-width:1200px){.home-buttons .button a .button-text{bottom:3vw}
 }@media(print),(prefers-reduced-motion:reduce){.animated{-webkit-animation-duration:1ms !important;animation-duration:1ms !important;-webkit-transition-duration:1ms !important;transition-duration:1ms !important;-webkit-animation-iteration-count:1 !important;animation-iteration-count:1 !important}
 }@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}
 100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
