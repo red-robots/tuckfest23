@@ -20,10 +20,10 @@
       <div class="wrapper">
         <div class="flexwrap">
           <?php $i=1; foreach ($buttons as $btn) { 
-            $color = ($btn['color']) ? $btn['color'] : '#CCC';
+            // $color = ($btn['color']) ? $btn['color'] : '#CCC';
+            // $image_hover = $btn['image_hover'];
             $image = $btn['image'];
             $div_id = $btn['id'];
-            $image_hover = $btn['image_hover'];
             $link = ($btn['link']) ? $btn['link'] : '';
             $pagelink = ( isset($link['url']) && $link['url'] ) ? $link['url'] : 'javascript:void(0)';
             $link_title = ( isset($link['title']) && $link['title'] ) ? $link['title'] : '';
