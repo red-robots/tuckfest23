@@ -8,22 +8,22 @@
 add_action('init', 'js_custom_init', 1);
 function js_custom_init() {
     $post_types = array(
-      array(
-        'post_type' => 'team',
-        'menu_name' => 'Team',
-        'plural'    => 'Team',
-        'single'    => 'Team',
-        'menu_icon' => 'dashicons-groups',
-        'supports'  => array('title','editor')
-      ),
-      array(
-        'post_type' => 'wins',
-        'menu_name' => 'Wins',
-        'plural'    => 'Wins',
-        'single'    => 'Win',
-        'menu_icon' => 'dashicons-awards',
-        'supports'  => array('title','editor')
-      ),
+      // array(
+      //   'post_type' => 'team',
+      //   'menu_name' => 'Team',
+      //   'plural'    => 'Team',
+      //   'single'    => 'Team',
+      //   'menu_icon' => 'dashicons-groups',
+      //   'supports'  => array('title','editor')
+      // ),
+      // array(
+      //   'post_type' => 'wins',
+      //   'menu_name' => 'Wins',
+      //   'plural'    => 'Wins',
+      //   'single'    => 'Win',
+      //   'menu_icon' => 'dashicons-awards',
+      //   'supports'  => array('title','editor')
+      // ),
       // array(
       //   'post_type' => 'insights',
       //   'menu_name' => 'Insights',

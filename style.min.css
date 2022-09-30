@@ -1322,8 +1322,8 @@ a:hover{color:#3788c4}
 #site-navigation #navigation ul.menu>li>a span:before,#site-navigation #navigation ul.menu>li>a span:after{content:"";display:block;height:5px;background:#e8634a;position:absolute;left:0;-webkit-transition:all ease .3s;transition:all ease .3s}
 #site-navigation #navigation ul.menu>li>a span:before{width:0;bottom:-6px;-webkit-transform:skew(-5deg);transform:skew(-5deg)}
 #site-navigation #navigation ul.menu>li>a span:after{width:0;height:1px;bottom:-8px;margin-left:10%;-webkit-transform:rotate(1deg);transform:rotate(1deg)}
-#site-navigation #navigation ul.menu>li:hover>a span:before{width:100%;margin-left:0}
-#site-navigation #navigation ul.menu>li:hover>a span:after{width:50%}
+#site-navigation #navigation ul.menu>li.current-menu-item>a span:before,#site-navigation #navigation ul.menu>li:hover>a span:before{width:100%;margin-left:0}
+#site-navigation #navigation ul.menu>li.current-menu-item>a span:after,#site-navigation #navigation ul.menu>li:hover>a span:after{width:50%}
 .home-banner figure{margin:0;width:100%;float:left}
 .home-banner figure img{width:100%;height:auto;float:left}
 .home-buttons{width:100%;float:left;padding-top:30px;padding-bottom:60px}
@@ -1352,6 +1352,47 @@ a:hover{color:#3788c4}
 #music a:hover #Layer_3{opacity:1;-webkit-transform:translateY(-10px) scale(1,1);transform:translateY(-10px) scale(1,1)}
 #music a:hover #Subtraction_2,#music a:hover #Intersection_2{-webkit-transform:translateY(-5px);transform:translateY(-5px)}
 .mobile-menu{display:none}
+body.subpage .site-header .wrapper.wide{max-width:100%;width:100%;padding:0}
+body.subpage .site-header .flexwrap{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+body.subpage .site-header #site-navigation{display:inline-block;width:auto;padding-right:5vw}
+body.subpage .site-header #site-navigation #navigation{padding:0}
+body.subpage .site-header #site-navigation #navigation ul.menu>li>a{padding:25px 20px 18px}
+body.subpage .site-logo{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-color:#e8634a;background-size:cover;background-position:top left;background-repeat:no-repeat;width:275px;height:60px;text-decoration:none}
+body.subpage .site-logo span{display:inline-block;color:#f0d6b5;font-family:"Tjoekil",cursive;font-size:2.1rem;font-weight:normal;line-height:1.1;letter-spacing:3px;text-transform:uppercase;padding-right:35px}
+body.subpage #primary{min-height:30em}
+.banner-subpage{width:100%;float:left;position:relative}
+.banner-subpage .banner-image{width:100%;float:left;height:50vh;background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#9e8c1f}
+.banner-subpage img.helper{width:100%;height:auto;float:left}
+.banner-subpage .banner-button{width:100%;position:absolute;top:0;left:0;z-index:50;text-align:center}
+.banner-subpage .heroBtn{display:inline-block;text-decoration:none;background-color:#e8634a;color:#f0d6b5;padding:10px 25px 9px 40px;font-family:"Reem Kufi Fun",sans-serif;font-size:14px;line-height:1.1;letter-spacing:1px;text-transform:uppercase;position:relative;border-bottom-right-radius:18px;border-bottom-left-radius:18px}
+.banner-subpage .heroBtn:before{content:"";display:block;width:17px;height:17px;position:absolute;top:7px;left:18px;background-image:url("assets/images/checkbox.svg");background-size:contain;background-position:center;background-repeat:no-repeat}
+.banner-subpage .heroBtn:hover{background-color:#000}
+.banner-subpage.noimage .banner-button{position:relative;top:-5px}
+.entry-title{background:#9e8c1f;position:relative;text-align:center;border-top:5px solid #f0d6b5;border-bottom:5px solid #f0d6b5}
+.entry-title:before,.entry-title:after{content:"";display:block;width:30vw;height:100%;position:absolute;top:0;background-image:url("assets/images/titlebg.svg");background-position:center;background-repeat:no-repeat;background-size:cover}
+.entry-title:before{left:0}
+.entry-title:after{right:0}
+.entry-title h1{font-family:"Tjoekil",cursive;font-size:2.5rem;font-weight:normal;line-height:1.2;text-transform:uppercase;letter-spacing:2px;text-align:center;margin:0;padding:14px 5vw 12px;color:#f0d6b5;display:inline-block;width:auto;position:relative;z-index:10}
+.default-template{width:100%;float:left}
+.feeds-wrapper{padding:50px 0}
+.feeds-wrapper .columns{margin-left:-10px;margin-right:-10px;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.feeds-wrapper .column{width:100%;margin:0}
+.feeds-wrapper .column .inner{width:100%;float:left;padding:10px}
+.feeds-wrapper div.image{width:100%;float:left;background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#e8634a}
+.feeds-wrapper figure{width:100%;float:left;margin:0;background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#e8634a;-webkit-transition:all ease .3s;transition:all ease .3s}
+.feeds-wrapper figure a{display:block;width:100%;float:left}
+.feeds-wrapper figure img{width:100%;height:auto;float:left}
+.feeds-wrapper div.image:hover figure{-webkit-transform:scale(0.97);transform:scale(0.97)}
+.feeds-wrapper .column p:empty{display:none}
+.feeds-wrapper .title{width:100%;float:left;margin:0;background:#e8634a;color:#f0d6b5;font-family:"Reem Kufi Fun",sans-serif;font-size:13px;font-weight:normal;line-height:1.1;text-transform:uppercase;text-decoration:none;padding:8px 15px}
+.feeds-wrapper .title a{color:#f0d6b5;text-decoration:none}
+.filter-options{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#407078;margin:0 0 35px}
+.filter-options select{background-color:rgba(0,0,0,0);border:1px solid #407078;border-radius:0;width:100%}
+.filter-options .filter-field{margin-left:15px;display:inline-block;width:150px}
+#pagination{width:100%;float:left;text-align:center;margin-top:15px;margin-bottom:40px;position:relative;left:-4px}
+#pagination span,#pagination a{display:inline-block;text-decoration:none;float:left;font-size:15px;line-height:1;padding:4px 7px;margin:5px 4px}
+#pagination span{color:#fff;background:#e8634a;border:1px solid #e8634a}
+#pagination a{color:#e8634a;border:1px solid #e8634a}
 .site-footer{width:100%;float:left;background:#9e8c1f}
 .site-footer .wrapper{padding:30px 20px 30px}
 .site-footer .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
@@ -1366,6 +1407,7 @@ a:hover{color:#3788c4}
 @media(min-width:820px){body{font-size:14px}
 .home-buttons .button{width:33.33%}
 .home-buttons .button a .button-text{bottom:2.5vw}
+.feeds-wrapper .column{width:33.333%}
 .site-footer .wrapper{padding:20px 20px 15px}
 .site-footer .flexwrap{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 .site-footer #footlogo{margin-bottom:0}

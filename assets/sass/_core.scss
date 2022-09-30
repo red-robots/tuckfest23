@@ -171,6 +171,7 @@ a {
         }
       }
     }
+    ul.menu >li.current-menu-item > a,
     ul.menu > li:hover > a {
       span {
         &:before {
@@ -241,7 +242,7 @@ a {
         left: 0;
         bottom: 10vw;
         z-index: 10;
-        font-family: $font_cursive;
+        font-family: $font_heading;
         font-size: 2.5em;
         line-height: 1.1;
         letter-spacing: 3px;
@@ -375,6 +376,288 @@ a {
 }
 
 
+body.subpage {
+  .site-header {
+    .wrapper.wide {
+      max-width: 100%;
+      width: 100%;
+      padding:0 0;
+    }
+    .flexwrap {
+      @include flexbox-justify(space-between);
+    }
+    #site-navigation {
+      display: inline-block;
+      width: auto;
+      padding-right: 5vw;
+      #navigation {
+        padding: 0 0;
+        ul.menu>li>a {
+          padding: 25px 20px 18px;
+        }
+      }
+    }
+  }
+  .site-logo {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: $orange;
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+    width: 275px;
+    height: 60px;
+    text-decoration: none;
+    span {
+      display: inline-block;
+      color: $cream;
+      font-family: $font_heading;
+      font-size: 2.1rem;
+      font-weight: normal;
+      line-height: 1.1;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding-right: 35px;
+    }
+  }
+
+  #primary {
+    min-height: 30em;
+  }
+}
+
+.banner-subpage {
+  width: 100%;
+  float: left;
+  position: relative;
+  .banner-image {
+    width: 100%;
+    float: left;
+    height: 50vh;
+    @include backgroundImage(center);
+    background-color: $secondary;
+  }
+  img.helper {
+    width: 100%;
+    height: auto;
+    float: left;
+  }
+  .banner-button {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    text-align: center;
+  }
+  .heroBtn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: $orange;
+    color: $cream;
+    padding: 10px 25px 9px 40px;
+    font-family: $font_primary;
+    font-size: 14px;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    &:before {
+      content: "";
+      display: block;
+      width: 17px;
+      height: 17px;
+      position: absolute;
+      top: 7px;
+      left: 18px;
+      background-image:url('assets/images/checkbox.svg');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    &:hover {
+      background-color: #000;
+    }
+  }
+  &.noimage {
+    .banner-button {
+      position: relative;
+      top: -5px;
+    }
+  }
+}
+
+.entry-title {
+  background: $secondary;
+  position: relative;
+  text-align: center;
+  border-top: 5px solid $cream;
+  border-bottom: 5px solid $cream;
+  &:before, &:after {
+    content:"";
+    display: block;
+    width: 30vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-image: url('assets/images/titlebg.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // background-size: contain;
+  }
+  &:before {
+    left: 0;
+  }
+  &:after {
+    right: 0;
+  }
+  h1 {
+    font-family: $font_heading;
+    font-size: 2.5rem;
+    font-weight: normal;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: 0 0;
+    padding: 14px 5vw 12px;
+    color: $cream;
+    display: inline-block;
+    width: auto;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+.default-template {
+  width: 100%;
+  float: left;
+}
+
+.feeds-wrapper {
+  padding: 50px 0;
+  .columns {
+    margin-left: -10px;
+    margin-right: -10px;
+    @include flexgroup();
+  }
+  .column {
+    width: 100%;
+    margin: 0 0;
+    @include tab {
+      width: 33.333%;
+    }
+    .inner {
+      width: 100%;
+      float: left;
+      padding: 10px;
+    }
+  }
+  div.image {
+    width: 100%;
+    float: left;
+    @include backgroundImage(center);
+    background-color: $orange;
+  }
+  figure {
+    width: 100%;
+    float: left;
+    margin: 0 0;
+    @include backgroundImage(center);
+    background-color: $orange;
+    transition: all ease .3s;
+    a {
+      display: block;
+      width: 100%;
+      float: left;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      float: left;
+    }
+  }
+  div.image:hover {
+    figure {
+      transform: scale(0.97);
+    }
+  }
+  .column p:empty {
+    display: none;
+  }
+  .title {
+    width: 100%;
+    float: left;
+    margin:0 0;
+    background: $orange;
+    color: $cream;
+    font-family: $font_primary;
+    font-size: 13px;
+    font-weight: normal;
+    line-height:1.1;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 8px 15px;
+    a {
+      color: $cream;
+      text-decoration: none;
+    }
+  }
+}
+
+.filter-options {
+  @include flexgroup();
+  @include flexbox-justify(center);
+  @include flexbox-align-items(center);
+  color: $primary;
+  margin: 0 0 35px;
+  select {
+    background-color: transparent;
+    border: 1px solid $primary;
+    border-radius: 0px;
+    width: 100%;
+  }
+  .filter-field {
+    margin-left: 15px;
+    display: inline-block;
+    width: 150px;
+  }
+}
+
+#pagination {
+  width: 100%;
+  float: left;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 40px;
+  position: relative;
+  left: -4px;
+  span, a {
+    display: inline-block;
+    text-decoration: none;
+    float: left;
+    font-size: 15px;
+    line-height: 1;
+    padding: 4px 7px;
+    margin: 5px 4px;
+  }
+  span {
+    color: #FFF;
+    background: $orange;
+    border: 1px solid $orange;
+  }
+  a {
+    color: $orange;
+    border: 1px solid $orange;
+  }
+}
+
 /* FOOTER */
 .site-footer {
   width: 100%;
@@ -408,6 +691,7 @@ a {
     }
   }
 }
+
 #footer-navigation {
   ul.menu ul {
     display: none;

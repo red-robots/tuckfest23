@@ -332,36 +332,34 @@ function team_list_shortcode_func( $atts ) {
 }
 
 
-add_shortcode( 'contact_info', 'contact_info_shortcode_func' );
-function contact_info_shortcode_func( $atts ) {
-  // $a = shortcode_atts( array(
-  //   'numcol'=>3
-  // ), $atts );
-
-  $info['address'] = array('icon'=>'fa fa-map-marker','val'=>get_field('address','option'));
-  $info['phone'] = array('icon'=>'fa fa-phone','val'=>get_field('phone','option'));
-  $info['email'] = array('icon'=>'fa fa-envelope','val'=>get_field('email','option'));
+add_shortcode( 'feeds', 'feeds_shortcode_func' );
+function feeds_shortcode_func( $atts ) {
   $output = '';
-  $items = '';
-  foreach($info as $k=>$i) {
-    if( $i['val'] ) {
-      $icon = ($i['icon']) ? '<i class="'.$i['icon'].'" aria-hidden="true"></i> ':'';
-      if($k=='email') {
-        $items .= '<li>'.$icon.'<a href="mailto:'.antispambot($i['val'],1).'">'.antispambot($i['val']).'</a></li>';
-      } 
-      else if($k=='phone') {
-        $items .= '<li>'.$icon.'<a href="tel:'.format_phone_number($i['val']).'">'.$i['val'].'</a></li>';
-      } 
-      else {
-        $items .= '<li>'.$icon.$i['val'].'</li>';
-      }
-
-      
-      
+  $a = shortcode_atts( array(
+    'post'=>'',
+    'perpage'=>'-1'
+  ), $atts );
+  
+  $post_type = (isset($a['post']) && $a['post']) ? $a['post'] : '';
+  $perpage = (isset($a['perpage']) && $a['perpage']) ? $a['perpage'] : '-1';
+  $paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
+  if($post_type) {
+    ob_start();
+    $args = array(
+      'posts_per_page'   => $perpage,
+      'post_type'        => $post_type,
+      'post_status'      => 'publish',
+      'paged'        => $paged
+    );
+    include( locate_template('parts/feeds.php') );
+    $output = ob_get_contents();
+    ob_end_clean();
+    if($output) {
+      $pattern = "/<p[^>]*><\\/p[^>]*>/"; 
+      $output = str_replace('<p></p>','',$output);
+      $output = preg_replace( $pattern, '', $output );
+      $output = preg_replace('/<br>|\n|<br( ?)\/>/', '', $output);
     }
-  }
-  if($items) {
-    $output = '<ul class="contact-data">'.$items.'</ul>';
   }
   return $output;
 }

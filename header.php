@@ -40,7 +40,10 @@ $extraClass = '';
 if(is_page()) {
   $extraClass .= (get_field('header_image')) ? ' has-banner':' no-banner';
 }
-$topNavs = get_field("topNavs","option"); 
+
+$brand_name = (get_field('brand_name','option')) ? get_field('brand_name','option') : get_bloginfo('name');
+$brand_image = get_field('brand_image','option');
+$brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url'].')"':'';
 ?>
 <body <?php body_class($extraClass);?>>
 <div id="page" class="site cf">
@@ -50,28 +53,17 @@ $topNavs = get_field("topNavs","option");
 	<header id="masthead" class="site-header" role="banner">
 		<div class="wrapper wide">
       <div class="flexwrap">
+
+        <?php if ( !is_front_page() && !is_home() ) { ?>
+        <a href="<?php echo get_site_url() ?>" class="site-logo"<?php echo $brandStyle ?>>
+          <span><?php echo $brand_name ?></span>
+        </a>  
+        <?php } ?>
   			
         <a class="mobile-menu" id="menutoggle" href="javascript:void(0)"><span class="bar"></span><i>Menu</i></a>
 
         <?php if ( has_nav_menu( 'primary' ) ||  $topNavs ) { ?>
         <div id="site-navigation">
-
-          <?php if ( $topNavs ) { ?>
-          <nav id="topnav" class="topnav">
-            <ul class="menu">
-            <?php foreach ($topNavs as $n) { 
-              if( $n['link'] ) { 
-                $a = $n['link'];
-                $target = ( isset($a['target']) && $a['target'] ) ? $a['target'] : '_self';
-                $icon = ($n['icon']) ? $n['icon'] : '';
-                $hasIcon = ($icon) ? 'has-icon':'no-icon';
-                ?>
-                <li class="top-link <?php echo $hasIcon ?>"><a href="<?php echo $a['url'] ?>" target="<?php echo $target ?>"><?php echo $icon ?><?php echo $a['title'] ?></a></li>
-              <?php } ?>
-            <?php } ?>
-            </ul>
-          </nav>
-          <?php } ?>
 
           <?php if ( has_nav_menu( 'primary' ) ) { ?>
     			<nav id="navigation" class="main-navigation animated fadeIn" role="navigation">

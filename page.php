@@ -12,15 +12,18 @@
  * @package bellaworks
  */
 get_header(); ?>
+<header class="entry-title">
+  <h1><?php the_title(); ?></h1>
+</header>
+<?php get_template_part('parts/hero-subpage'); ?>
 <div id="primary" class="content-area default-template">
-	<main id="main" class="site-main wrapper">
+	<main id="main" class="site-main">
 		<?php while ( have_posts() ) : the_post(); ?>
-      <header class="entry-title">
-        <div class="wrapper">
-          <h1 class="page-title"><?php the_title(); ?></h1>
-        </div>
-      </header>
-      <section class="entry-content"><?php the_content(); ?></section>
+      <?php if ( get_the_content() ) { ?>
+      <section class="entry-content">
+        <div class="wrapper"><?php the_content(); ?></div>
+      </section>
+      <?php } ?>
 		<?php endwhile; ?>	
 	</main>
 </div>
