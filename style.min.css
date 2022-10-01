@@ -1387,8 +1387,9 @@ body.subpage #primary{min-height:30em}
 .feeds-wrapper .title{width:100%;float:left;margin:0;background:#e8634a;color:#f0d6b5;font-family:"Reem Kufi Fun",sans-serif;font-size:13px;font-weight:normal;line-height:1.1;text-transform:uppercase;text-decoration:none;padding:8px 15px}
 .feeds-wrapper .title a{color:#f0d6b5;text-decoration:none}
 .filter-options{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#407078;margin:0 0 35px}
-.filter-options select{background-color:rgba(0,0,0,0);border:1px solid #407078;border-radius:0;width:100%}
-.filter-options .filter-field{margin-left:15px;display:inline-block;width:150px}
+.filter-options select{background-color:rgba(0,0,0,0);border:1px solid #407078;border-radius:0;width:100%;padding:2px 6px}
+.filter-options .facetwp-facet,.filter-options .filter-field{margin:0 0 0 15px;display:inline-block;width:150px}
+.filter-options p:empty{display:none}
 #pagination{width:100%;float:left;text-align:center;margin-top:15px;margin-bottom:40px;position:relative;left:-4px}
 #pagination span,#pagination a{display:inline-block;text-decoration:none;float:left;font-size:15px;line-height:1;padding:4px 7px;margin:5px 4px}
 #pagination span{color:#fff;background:#e8634a;border:1px solid #e8634a}

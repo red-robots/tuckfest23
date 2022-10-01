@@ -337,19 +337,22 @@ function feeds_shortcode_func( $atts ) {
   $output = '';
   $a = shortcode_atts( array(
     'post'=>'',
+    'filter'=>'',
     'perpage'=>'-1'
   ), $atts );
   
+  $filter = (isset($a['filter']) && $a['filter']) ? $a['filter'] : '';
   $post_type = (isset($a['post']) && $a['post']) ? $a['post'] : '';
   $perpage = (isset($a['perpage']) && $a['perpage']) ? $a['perpage'] : '-1';
   $paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
   if($post_type) {
     ob_start();
     $args = array(
-      'posts_per_page'   => $perpage,
-      'post_type'        => $post_type,
-      'post_status'      => 'publish',
-      'paged'        => $paged
+      'posts_per_page'  => $perpage,
+      'post_type'       => $post_type,
+      'post_status'     => 'publish',
+      'paged'           => $paged,
+      'facetwp'         => true
     );
     include( locate_template('parts/feeds.php') );
     $output = ob_get_contents();
@@ -425,5 +428,32 @@ add_filter( 'use_block_editor_for_post_type', 'ea_disable_gutenberg', 10, 2 );
 
 // }
 // add_action( 'admin_head', 'ea_disable_classic_editor' );
+
+
+/**
+ * Remove default description column from category
+ *
+ */
+function jw_remove_taxonomy_description($columns) {
+ // only edit the columns on the current taxonomy, replace category with your custom taxonomy (don't forget to change in the filter as well)
+ // if ( !isset($_GET['taxonomy']) || $_GET['taxonomy'] != 'category' )
+ // return $columns;
+
+ // unset the description columns
+ if ( isset($_GET['taxonomy']) ){ unset($columns['description']); }
+ 
+ return $columns;
+}
+if( is_admin() ) {
+  if( isset($_GET['taxonomy']) && $_GET['taxonomy'] ) {
+    $taxonomy = $_GET['taxonomy'];
+    add_filter('manage_edit-'.$taxonomy.'_columns','jw_remove_taxonomy_description');
+  }
+}
+
+
+
+
+
 
 

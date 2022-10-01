@@ -2,19 +2,22 @@
 $posts = new WP_Query($args);
 if ( $posts->have_posts() ) { ?>
 <div class="feeds-wrapper">
-  <div class="filter-options">
-    <span class="ftitle">FILTER BY:</span>
-    <span class="filter-field">
-      <select name="">
-        <option value="">Select...</option>
-      </select>
-    </span>
-    <span class="filter-field">
-      <select name="">
-        <option value="">Select...</option>
-      </select>
-    </span>
-  </div>
+
+  <?php  
+  $filter_options = ($filter) ? explode(',',$filter) : '';
+  if($filter_options) { ?>
+    <?php if ( do_shortcode('[facetwp facet="competition_type"]') || do_shortcode('[facetwp facet="competition_day"]') ) { ?>
+    <div class="filter-options">
+      <span class="ftitle">FILTER BY:</span>
+      <?php foreach ($filter_options as $opt) { ?>
+        <?php if ( do_shortcode('[facetwp facet="'.$opt.'"]') ) { ?>
+          <?php echo do_shortcode('[facetwp facet="'.$opt.'"]'); ?>
+        <?php } ?>
+      <?php } ?>
+    </div>
+    <?php } ?>
+  <?php } ?>
+
   <div class="columns">
     <?php while ( $posts->have_posts() ) : $posts->the_post(); 
         $post_id = get_the_ID();
