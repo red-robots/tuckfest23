@@ -559,6 +559,12 @@ body.subpage {
       padding: 10px;
     }
   }
+  .parent-wrap {
+    width: 100%;
+    margin-left: -10px;
+    margin-right: -10px;
+    @include flexgroup();
+  }
   div.image {
     width: 100%;
     float: left;
@@ -607,6 +613,68 @@ body.subpage {
     a {
       color: $cream;
       text-decoration: none;
+    }
+  }
+}
+
+.fullwidth-block.event-details {
+  width: 100%;
+  padding: 0 10px;
+  .inner {
+    background: #FFF;
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    *:last-child {
+      margin-bottom: 0;
+    }
+    h3 {
+      margin:0 0 10px;
+    }
+    a {
+      color: $orange;
+      text-decoration: underline;
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+  .eventtitle {
+    color: $orange;
+    font-size: 2em;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 15px;
+  }
+  .close-event-info {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0.5;
+    &:before, &:after {
+      content:"";
+      display: block;
+      width: 80%;
+      height: 2px;
+      background-color: #000;
+      position: absolute;
+      top: 9px;
+      left: 2px;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+    &:hover {
+      opacity: 1;
     }
   }
 }

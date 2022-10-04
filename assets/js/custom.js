@@ -57,4 +57,55 @@ jQuery(document).ready(function ($) {
       prevEl: '.swiper-button-prev'
     }
   });
+  /* POP-UP STAFF DETAILS */
+
+  $('.column.post-type-music').on("click", function (e) {
+    e.preventDefault();
+    var target = $(this);
+    var post_id = $(this).attr('data-postid');
+    var parent = $(this).parents('.parent-wrap');
+    $.ajax({
+      url: frontajax.ajaxurl,
+      type: 'post',
+      dataType: "json",
+      data: {
+        action: 'getPostData',
+        post_id: post_id
+      },
+      beforeSend: function beforeSend() {
+        //$(".ml-loader-wrap").show();
+        if ($('.event-details').length) {
+          $('.event-details').remove();
+        }
+
+        $(window).on('orientationchange resize', function () {
+          if ($('.event-details').length) {
+            $('.event-details').remove();
+          }
+        });
+      },
+      success: function success(response) {
+        if (response.content) {
+          if ($(window).width() < 821) {
+            $(response.content).appendTo(target);
+          } else {
+            $(response.content).appendTo(parent);
+          }
+
+          $(window).on('orientationchange resize', function () {
+            if ($(window).width() < 821) {
+              $(response.content).appendTo(target);
+            } else {
+              $(response.content).appendTo(parent);
+            }
+          });
+        }
+      },
+      complete: function complete() {
+        $('.close-event-info').on('click', function () {
+          $('#event-details').remove();
+        });
+      }
+    });
+  });
 });

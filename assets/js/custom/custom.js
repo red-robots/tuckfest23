@@ -3,7 +3,7 @@
  *	Date Modified: 04.12.2022
  *	Developed by: Lisa DeBona
  */
-jQuery(document).ready(function ($) {  
+jQuery(document).ready(function($){  
 
   // const swiper = new Swiper('.slideshow .swiper', {
   //   // Optional parameters
@@ -58,5 +58,59 @@ jQuery(document).ready(function ($) {
       prevEl: '.swiper-button-prev',
     }
   });
+
+
+  /* POP-UP STAFF DETAILS */
+  $('.column.post-type-music').on("click",function(e){
+    e.preventDefault();
+    var target = $(this);
+    var post_id = $(this).attr('data-postid');
+    var parent = $(this).parents('.parent-wrap');
+    $.ajax({
+      url : frontajax.ajaxurl,
+      type : 'post',
+      dataType : "json",
+      data : {
+        action : 'getPostData',
+        post_id : post_id
+      },
+      beforeSend:function(){
+        //$(".ml-loader-wrap").show();
+        if( $('.event-details').length ) {
+          $('.event-details').remove();
+        }
+        $(window).on('orientationchange resize',function(){
+          if( $('.event-details').length ) {
+            $('.event-details').remove();
+          }
+        });
+      },
+      success:function(response) {
+        if(response.content) {
+
+          if( $(window).width() < 821 ) {
+            $(response.content).appendTo(target);
+          } else {
+            $(response.content).appendTo(parent);
+          }
+
+          $(window).on('orientationchange resize',function(){
+            if( $(window).width() < 821 ) {
+              $(response.content).appendTo(target);
+            } else {
+              $(response.content).appendTo(parent);
+            }
+          });
+        }
+      },
+      complete:function(){
+        $('.close-event-info').on('click',function(){
+          $('#event-details').remove();
+        });
+      }
+    });
+
+  });
+
 
 }); 

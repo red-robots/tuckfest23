@@ -454,6 +454,47 @@ if( is_admin() ) {
 
 
 
+function my_ajax_files() {
+ wp_localize_script( 'function', 'my_ajax_script', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+}
+add_action('template_redirect', 'my_ajax_files');
+
+
+add_action( 'wp_ajax_nopriv_getPostData', 'getPostData' );
+add_action( 'wp_ajax_getPostData', 'getPostData' );
+function getPostData() {
+  if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+    $post_id = ($_POST['post_id']) ? $_POST['post_id'] : 0;
+    $post = get_post($post_id);
+    $html = ($post) ? getPostContentHTML($post) : '';
+    
+    $response['content'] = $html;
+    echo json_encode($response);
+  }
+  else {
+    header("Location: ".$_SERVER["HTTP_REFERER"]);
+  }
+  die();
+}
+function getPostContentHTML($obj) {
+  $post_id = $obj->ID;
+  $post_title = $obj->post_title;
+  $content = $obj->post_content;
+  $content = apply_filters('the_content',$content); 
+  ob_start(); ?>
+  <div id="event-details" class="fullwidth-block event-details animated fadeIn">
+    <div class="inner">
+      <a href="javascript:void(0)" class="close-event-info"></a>
+      <h2 class="eventtitle"><?php echo $post_title ?></h2>
+      <div class="eventinfo"><?php echo $content ?></div>
+    </div>
+  </div>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+
 
 
 
