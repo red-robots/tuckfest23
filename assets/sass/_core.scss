@@ -758,6 +758,10 @@ body.subpage {
   margin-bottom: 80px;
   width: 100%;
   float: left;
+  .wrapper {
+    max-width: 1300px;
+    width: 100%;
+  }
   .content-block {
     margin: 8px 0;
     @include flexgroup();
