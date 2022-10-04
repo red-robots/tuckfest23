@@ -1410,7 +1410,7 @@ body.subpage #primary{min-height:30em}
 #pagination span,#pagination a{display:inline-block;text-decoration:none;float:left;font-size:15px;line-height:1;padding:4px 7px;margin:5px 4px}
 #pagination span{color:#fff;background:#e8634a;border:1px solid #e8634a}
 #pagination a{color:#e8634a;border:1px solid #e8634a}
-.repeatable-content-blocks{margin-bottom:80px;width:100%;float:left}
+.repeatable-content-blocks{margin-top:50px;margin-bottom:80px;width:100%;float:left}
 .repeatable-content-blocks .content-block{margin:20px 0;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .repeatable-content-blocks .content-block .textcol,.repeatable-content-blocks .content-block .imagecol{width:100%;position:relative}
 .repeatable-content-blocks .content-block .textcol{background:#9e8c1f;color:#faf0d0;padding:60px 30px}
