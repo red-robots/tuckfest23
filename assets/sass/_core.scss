@@ -550,6 +550,7 @@ body.subpage {
   .column {
     width: 100%;
     margin: 0 0;
+    position:relative;
     @include tab {
       width: 33.333%;
     }
@@ -557,6 +558,24 @@ body.subpage {
       width: 100%;
       float: left;
       padding: 10px;
+    }
+    &.active {
+      z-index: 30;
+      &:after {
+        content:"";
+        display: inline-block;
+        width: 0; 
+        height: 0;
+        border-top: 12px solid $orange;
+        border-left: 12px solid transparent; 
+        border-right: 12px solid transparent;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+      }
+      figure {
+        transform: scale(0.97);
+      }
     }
   }
   .parent-wrap {
@@ -620,6 +639,8 @@ body.subpage {
 .fullwidth-block.event-details {
   width: 100%;
   padding: 0 10px;
+  position: relative;
+  top: -10px;
   .inner {
     background: #FFF;
     position: relative;

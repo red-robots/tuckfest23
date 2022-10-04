@@ -64,6 +64,8 @@ jQuery(document).ready(function ($) {
     var target = $(this);
     var post_id = $(this).attr('data-postid');
     var parent = $(this).parents('.parent-wrap');
+    $('.column.post-type-music').not(target).removeClass('active');
+    target.addClass('active');
     $.ajax({
       url: frontajax.ajaxurl,
       type: 'post',
@@ -104,6 +106,7 @@ jQuery(document).ready(function ($) {
       complete: function complete() {
         $('.close-event-info').on('click', function () {
           $('#event-details').remove();
+          target.removeClass('active');
         });
       }
     });

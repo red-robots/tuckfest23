@@ -1376,8 +1376,11 @@ body.subpage #primary{min-height:30em}
 .default-template{width:100%;float:left}
 .feeds-wrapper{padding:50px 0}
 .feeds-wrapper .columns{margin-left:-10px;margin-right:-10px;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
-.feeds-wrapper .column{width:100%;margin:0}
+.feeds-wrapper .column{width:100%;margin:0;position:relative}
 .feeds-wrapper .column .inner{width:100%;float:left;padding:10px}
+.feeds-wrapper .column.active{z-index:30}
+.feeds-wrapper .column.active:after{content:"";display:inline-block;width:0;height:0;border-top:12px solid #e8634a;border-left:12px solid rgba(0,0,0,0);border-right:12px solid rgba(0,0,0,0);position:absolute;left:50%;bottom:0}
+.feeds-wrapper .column.active figure{-webkit-transform:scale(0.97);transform:scale(0.97)}
 .feeds-wrapper .parent-wrap{width:100%;margin-left:-10px;margin-right:-10px;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .feeds-wrapper div.image{width:100%;float:left;background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#e8634a}
 .feeds-wrapper figure{width:100%;float:left;margin:0;background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#e8634a;-webkit-transition:all ease .3s;transition:all ease .3s}
@@ -1387,7 +1390,7 @@ body.subpage #primary{min-height:30em}
 .feeds-wrapper .column p:empty{display:none}
 .feeds-wrapper .title{width:100%;float:left;margin:0;background:#e8634a;color:#f0d6b5;font-family:"Reem Kufi Fun",sans-serif;font-size:13px;font-weight:normal;line-height:1.1;text-transform:uppercase;text-decoration:none;padding:8px 15px}
 .feeds-wrapper .title a{color:#f0d6b5;text-decoration:none}
-.fullwidth-block.event-details{width:100%;padding:0 10px}
+.fullwidth-block.event-details{width:100%;padding:0 10px;position:relative;top:-10px}
 .fullwidth-block.event-details .inner{background:#fff;position:relative;width:100%;padding:20px;text-align:center;font-size:1.2em}
 .fullwidth-block.event-details .inner *:last-child{margin-bottom:0}
 .fullwidth-block.event-details .inner h3{margin:0 0 10px}
