@@ -759,8 +759,9 @@ body.subpage {
   width: 100%;
   float: left;
   .content-block {
-    margin: 20px 0;
+    margin: 8px 0;
     @include flexgroup();
+    @include flexbox-justify(space-between);
     .textcol, .imagecol {
       width: 100%;
       position: relative;
@@ -868,7 +869,7 @@ body.subpage {
     &.half {
       .textcol {
         @include tab {
-          width: 40%;
+          width: calc(40% - 8px);
           @include flexgroup();
           @include flexbox-align-content(center);
         }
