@@ -491,7 +491,15 @@ body.subpage {
     }
   }
 }
-
+.entry-content {
+  font-family: $font_secondary;
+  font-weight: normal;
+  &.page-content {
+    max-width: 600px;
+    padding-top: 40px;
+    margin: 0 auto;
+  }
+}
 .entry-title {
   background: $secondary;
   position: relative;
@@ -978,6 +986,561 @@ body.subpage {
     }
   }
 }
+.page-links {
+  clear: both;
+  margin: 0 0 1.5em;
+}
+#grid {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+.schedule {
+  flex-wrap: wrap;
+  .col {
+    flex-basis: 100%;
+    text-align: left;
+    @media screen and (min-width: $tabwidth) {
+      flex-basis: 31%;
+      &:after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
+    h2 {
+      width: 100%;
+      text-align: center;
+      margin: 0 0 25px 0;
+      font-size: 24px;
+    }
+    .musicnote {
+      width: 30px;
+      display: inline-block;
+      img {
+        width: 100%;
+      }
+    }
+    .mis {
+      width: auto;
+      display: inline-block;
+      margin-left: 10px;
+    }
+    .title {
+      width: auto;
+      display: inline-block;
+      padding: 0;
+      color: $yellowish;
+    }
+  }
+}
+section.schedule-music {
+  flex-wrap: wrap;
+  .col {
+    flex-basis: 22%;
+  }
+}
+.schedule,
+section.schedule-music {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .col-wrap {
+    width: 100%;
+    padding: 25px;
+    margin: 0 0 30px 0;
+    background-color: $teal;
+    color: $cream;
+    text-align: left;
+    font-size: 11pt;
+    position: relative;
+    float: left;
+    .offset {
+      border: 2px solid $darkgreen;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 8px;
+      left: 8px;
+    }
+    .contents {
+      width: 100%;
+      height: 100%;
+      float: left;
+      position: relative;
+      // z-index: 100;
+    }
+    .image {
+      width: 100%;
+      position: relative;
+      padding: 3px;
+      float: left;
+      img {
+        width: 100%;
+      }
+    }
+    .icon {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      bottom: -25px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      z-index: 100000;
+    }
+    h2 {
+      text-transform: uppercase;
+      font-family: $font-heading;
+      margin: 30px auto 20px auto;
+      width: 100%;
+      float: left;
+      color: $red_orange;
+    }
+    .time {
+      color:$red_orange;
+      font-size: 18px;
+    }
+    .first {
+      // margin: 0 0 20px 0;
+    }
+    .title {
+      // text-transform: uppercase;
+      font-size: 20px;
+      line-height: 1.1;
+      a {
+        text-decoration: none;
+        color: $yellowish;
+        // border-bottom: 1px solid $color-blue;
+        @include transition(all ease .2s);
+        &:hover {
+          // border-bottom: 1px solid #fff;
+        }
+      }
+    }
+    
+    li {
+      list-style: none;
+      margin: 0 0 25px 0;
+      &.item {
+        width: 100%;
+        position: relative;
+        float: left;
 
+      }
+      &.clinics a {
+        background-color: $orange;
+        .title, .time {
+          color: $darkgreen;
+        }
+      }
+      &.music a {
+        background-color: $orange;
+        .time {
+          color: $yellowish;
+        }
+      }
+      &.bike a, &.trail-run a, &.raft a, &.adventure-obstacle a, &.deep-water-solo a, &.swim a, &.kayak a, &.sup a, &.climb a {
+        background-color: $darkgreen;
+      }
+      &.yoga a {
+        background-color: $darkgreen;
+      }
+    }
+  }
+}
+// ###########      Schedule filters
+.drops {
+  text-align: center;
+  @media screen and (min-width:  $tabwidth) {
+    display: none;
+  }
+}
+#filters {
+  @media screen and (min-width: $tabwidth) {
+    display: flex;
+  }
+}
+#filters, .drops {
+  width: 100%;
+  padding: 20px 10px 30px 10px;
+  @media screen and (min-width: $tabwidth) {
+    padding: 50px 20px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 50px 0px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 0 20px 0 0;
+    @media screen and (min-width: $tabwidth) {
+      font-size: 24px;
+      display: inline-block;
+    }
+    @media screen and (min-width: $deskwidth) {
+      font-size: 28px;
+    }
+  }
+  .types {
+    margin-bottom: 15px;
+  }
+  select {display: none;}
+  .days .select-styled {
+    @media screen and (min-width: $tabwidth) {
+      display: none;
+    }
+  }
+  .select-hidden {
+    display: none;
+    visibility: hidden;
+    padding-right: 10px;
+  }
+  .select {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    font-size: 12px;
+    width: 100%;
+    height: 60px;
+    @media screen and (min-width: $tabwidth) {
+      width: 380px;
+      font-size: 14px;
+      height: 50px;
+  }
+    // padding: 15px 0;
+  }
+  .select-styled {
+    position: absolute; 
+    width: 100%;
+    text-align: left;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: $body_color;
+    background-color: $red_orange;
+    &.blue {
+      background-color: $red_orange;
+      color: $red_orange;
+    }
+    padding: 15px 15px 8px 15px;
+    text-transform: uppercase;
+    // font-family: $font-coco;
+    
+    font: {
+      size: 16px;
+    }
+    background: {
+      position: right 15px top 20px;
+      image: url(images/select-downarrow.png);
+      repeat: no-repeat;
+      size: 20px;
+    }
+    @media screen and (min-width: $tabwidth) {
+      background-position: right 20px top 20px;
+      background-size: 25px;
+      width: 300px;
+    }
+    @include transition(all 0.2s ease-in);
+    @media screen and (min-width: $tabwidth) {
+      width: 380px;
+    }
+    &:after {
+      content:"";
 
+      width: 0;
+      height: 0;
+      border: 7px solid transparent;
+      // border-color: $select-color transparent transparent transparent;
+      position: absolute;
+      top: 16px;
+      right: 10px;
+    }
+  }
+  .select-options {
+    display: none; 
+    width: 100%;
+    position: absolute;
+    // font-family: $font-coco;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 99999;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: darken($red_orange, 5);
+    &.blue {
+      background-color: darken($darkgreen, 5);
+    }
+    text-transform: uppercase;
+    a {
+      color: $red_orange;
+      text-decoration: none;
+    }
+    li {
+      margin: 0;
+      padding: 12px 0;
+      text-indent: 15px;
+      text-align: left;
+      border-top: 1px solid darken($teal, 10);
+      @include transition(all 0.15s ease-in);
+      &:hover {
+        color: #fff;
+        background: $red_orange;
+      }
+      &[rel="hide"] {
+        display: none;
+      }
+    }
+  }
+  
+}
+#subNavs {
+  width: 100%;
+  float: left;
+  text-align: center;
+  position: relative;
+  top: 0;
+  z-index: 1005;
+  background-color: $orange;
+  #subnavdata {
+    // border-top: 1px solid rgba($cream,.15);
+  }
+  ul.sub-menu {
+    display: none;
+    margin: 0 0;
+    padding: 0 0;
+    list-style: none;
+    position: relative;
+    top: 5px;
+    li {
+      display: inline-block;
+      float: left;
+      text-align: left;
+      padding: 0 14px;
+    }
+    &.active {
+      display: inline-block;
+    }
+    a {
+      display: inline-block;
+      text-decoration: none;
+      // font-family: $font1;
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: #fff;
+      padding: 11px 0 13px;
+      position: relative;
+      &:after {
+        content:"";
+        width: 0;
+        height: 2px;
+        background: $red_orange;
+        position:absolute;
+        bottom: 11px;
+        left: 0;
+        transition: all ease 0.2s;
+      }
+      &:hover {
+        &:after {
+          width: 50%;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: $tabwidth) {
+    display: none;
+  }
+}
+section.faqs {
+  width: 100%;
+  clear: both;
+  @media screen and (min-width: $deskwidth) {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 0;  
+  }
+}
+.faqrow {
+  width: auto;
+  overflow: hidden;
+  margin: 0 0 20px 0; 
+  background-color: rgba(255,255,255,.05);
+  border-radius: 10px;
+}
+.question {
+  width: auto;
+  float:left;
+  margin: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor:pointer; 
+  line-height: 1.3;
+  position: relative;
+  padding: 0 0 0 20px ;
+  @include transition(all ease .3s);
+  &:hover {
+    color: $red_orange;
+    .plus-minus-toggle {
+      &:before,
+        &:after {
+          // background: $cream;
+        }
+    }
+  }
+}
+.question-image {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 0px;
+  top: 3px;
+  background-image: url(images/faq.png);
+  background-repeat: no-repeat;
+  background-position: 0 0; 
+}
+.question-image.close {
+  background-position: -15px 0; 
+}
+.answer {
+  width: auto;
+  float:left;
+  margin: 10px;
+  font-size: 14px;
+  line-height: 1.3;
+  padding: 20px;
+  display:none;
+  background-color: #fff;
+}
+.plus-minus-toggle {
+    cursor: pointer;
+    height: 21px;
+    position: absolute;
+    width: 21px;
+    left:-10px;
+    top:40%;
+    z-index:2;
 
+    &:before,
+    &:after {
+      background: $red_orange;
+      content: '';
+      height: 5px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 21px;
+      transition: transform 500ms ease;
+    }
+
+    &:after {
+      transform-origin: center;
+    }
+
+    &.collapsed {
+      &:after {
+        transform: rotate(90deg);
+
+      }
+
+      &:before {
+        transform: rotate(180deg);
+      }
+    }
+}
+section.photo-gallery {
+  width: 90%;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+section.photo-gallery .gal-thumb {
+  width: 240px;
+  height: 240px;
+  margin: 5px;
+  float: left;
+}
+section.photo-gallery .gal-thumb img {
+  width: 100%;
+}
+.flexcol-content {
+  @include flexgroup();
+  margin:0 0;
+  padding: 10px 0 80px;
+  @media only screen and (min-width: $tabwidth) {
+    margin:0 -20px;
+  }
+  h2,h3,h4,h5,h6 {
+    // font-family: $font1;
+    font-weight: 600;
+    color: #fff;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  .flexcol {
+    width: 100%;
+    padding: 20px 0;
+    @include tab {
+      padding: 0 0;
+    }
+    .inside {
+      padding: 20px;
+      height: 100%;
+      @media only screen and (min-width: $tabwidth) {
+        padding: 5vw;
+      }
+      .wrap {
+        width: 100%;
+      }
+    }
+    a {
+      color: #fff;
+      text-decoration: underline;
+      &:after {
+        display: none;
+      }
+      &:hover {
+        color: #FFF;
+      }
+    }
+    &.fl {
+      .inside {
+        color: #fff;
+        background: $secondary;
+        @include flexgroup();
+        @include flexbox-align-content(center);
+        @include flexbox-justify(center);
+      }
+    }
+    &.fr {
+      .inside {
+        color: #FFF;
+        background: $orange;
+        @include flexgroup();
+        @include flexbox-align-content(center);
+        @include flexbox-justify(center);
+      }
+      p {
+        margin: 0 0;
+      }
+    }
+  }
+  &.half {
+    .flexcol {
+      @media only screen and (min-width: $tabwidth) {
+        width: 50%;
+      }
+    }
+  }
+}

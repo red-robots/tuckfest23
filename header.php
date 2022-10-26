@@ -69,6 +69,7 @@ $brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url
     			<nav id="navigation" class="main-navigation animated fadeIn" role="navigation">
             <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container'=>false, 'menu_id' => 'primary-menu','link_before'=>'<span>','link_after'=>'</span>') ); ?>
           </nav>
+
           <?php } ?>
 
           <span id="closeMobileNav"></span>
@@ -77,8 +78,47 @@ $brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url
       
   		</div>
     </div>	
+    <div id="subNavs"><div id="subnavdata" class=""></div></div>
 	</header>
 
 	<?php get_template_part('parts/hero'); ?>
+
+  <?php 
+  $id = array();
+  $ID = 0;
+  if(27 == $post->post_parent ) { // About
+    $id[] = 'has parent';
+  } elseif(32 == $post->post_parent ) { // Music
+    $id[] = 'has parent';
+  } elseif(21 == $post->post_parent ) { // buy
+    $id[] = 'has parent';
+  }
+  // echo '<pre>';
+  // print_r($id);
+  // echo '</pre>';
+  if( $id != '') {
+    if ( is_page() && $post->post_parent ) {
+      $ID = wp_get_post_parent_id($ID);
+      // Get Child pages
+      $pageArgs = array(
+        'child_of' => $ID,
+        'title_li' => ''
+      );
+
+      if( $post->post_parent )  { ?>
+      <div class="drops-wrap">
+        <div class="drops">
+          <div class="select">
+            <div class="select-styled blue"><?php the_title(); ?></div>
+            <ul class="select-options blue">
+              <?php wp_list_pages($pageArgs); ?>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <?php } ?>
+    <?php } ?>
+
+  <?php } ?>
 
 	<div id="content" class="site-content">

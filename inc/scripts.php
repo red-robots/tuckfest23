@@ -32,6 +32,13 @@ function bellaworks_scripts() {
      true 
     );
 
+    wp_enqueue_script( 
+     'bellaworks-colorbox', 
+     get_template_directory_uri() . '/assets/js/colorbox.js', 
+     array(), '10092021', 
+     true 
+    );
+
 	wp_enqueue_script( 
 			'vimeo-player', 
 			'https://player.vimeo.com/api/player.js', 

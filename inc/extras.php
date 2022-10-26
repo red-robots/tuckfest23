@@ -15,6 +15,12 @@
  */
 define('THEMEURI',get_template_directory_uri());
 
+/*-------------------------------------
+ new image size
+---------------------------------------*/
+
+add_image_size('tile', 350, 350, array('center', 'center'));
+
 function bellaworks_body_classes( $classes ) {
     // Adds a class of group-blog to blogs with more than 1 published author.
     if ( is_multi_author() ) {

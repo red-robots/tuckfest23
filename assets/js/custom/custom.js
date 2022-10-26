@@ -39,6 +39,57 @@ jQuery(document).ready(function($){
     $('#site-navigation').removeClass('show');
   });
 
+  $(document).on('click','.main-navigation li',function(e) {
+    var linkClasses = $(this).attr("class").split(' ');
+    $("#masthead ul.submenu").removeClass('active');
+    if( $(this).hasClass("dimmer") ) {
+      $('#dimmer').addClass('activate');
+    }
+
+    $("#masthead ul.submenu").each(function(){
+      var target = $(this);
+      var menu_classes = $(this).attr("class").split(' ');
+      $(linkClasses).each(function(a,b){
+        if($.inArray(b, menu_classes) != -1) {
+          target.addClass('active');
+          if( $(".subnav#js-tsn").length ) {
+            $(".subnav#js-tsn").hide();
+          }
+        }
+      });
+    });
+  });
+
+  $(".menu-item-type-custom.menu-item-has-children > a").on("click",function(e){
+    var link = $(this).attr("href").trim().replace(/\s/g,'');
+    if(link=='#') {
+      e.preventDefault();
+      var parent_id = $(this).parents(".menu-item-has-children").attr("id");
+      $(this).next(".sub-menu").addClass('active');
+      if( $("#subnavdata ul.sub-menu").length ) {
+        $("#subnavdata ul.sub-menu").each(function(){
+          var submenu = $(this);
+          if( submenu.hasClass("link-"+parent_id) ) {
+            submenu.toggleClass('animated fadeInDown active');
+          } else {
+            submenu.removeClass('animated fadeInDown active');
+          }
+        });
+
+        if( $('body').has('home') ) {
+          $("body.home #subNavs").addClass("animated fadeInDown");
+        }
+      }
+    }
+  });
+  $("#primary-menu.menu li.menu-item-has-children").each(function(){
+    if( $(this).find("ul.sub-menu").length ) {
+      var id = $(this).attr("id");
+      $(this).find("ul.sub-menu").addClass("link-"+id).appendTo("#subnavdata");
+    }
+  });
+  
+
   const swiper = new Swiper('.slideshow .swiper', {
     autoplay: {
       delay: 10000,
@@ -59,6 +110,39 @@ jQuery(document).ready(function($){
     }
   });
 
+
+ /*
+    *
+    *   Colorbox
+    *
+    ------------------------------------*/
+    $('a.gallery').colorbox({
+        rel:'gal',
+        width: '95%', 
+        height: '95%'
+    });
+    $('a.colorbox').colorbox({
+        inline:true, 
+        width:"90%"
+    });
+    $(".youtube").colorbox({
+        inline:true, 
+        width:"60%"
+    });
+
+
+  /*
+        FAQ dropdowns
+__________________________________________
+*/
+$('.question').click(function() {
+ 
+    $(this).next('.answer').slideToggle(500);
+    $(this).toggleClass('close');
+    $(this).find('.plus-minus-toggle').toggleClass('collapsed');
+    $(this).parent().toggleClass('active');
+ 
+});
 
   /* POP-UP STAFF DETAILS */
   $('.column.post-type-music').on("click",function(e){
