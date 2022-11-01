@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Schedule (new layout)
+ * Template Name: Schedule (old layout)
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -21,7 +21,7 @@ $soon = ( isset($comingSoon[0]) ) ? $comingSoon[0] : '';
 			<?php
 			while ( have_posts() ) : the_post(); 
         //get_template_part('inc/special-title');
-        get_template_part('parts/hero-subpage');
+        //get_template_part('inc/banner');
 			endwhile; // End of the loop.?>
 
 			<?php  //include( locate_template( 'inc/schedule-links-filter.php', false, false ) );  ?>

@@ -918,6 +918,23 @@ body.subpage {
   }
 }
 
+.lefty {
+  h2 {
+    display: none;
+  }
+}
+
+.righty {
+  div.img {
+    width: 100%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+
 
 /* FOOTER */
 .site-footer {
@@ -999,6 +1016,11 @@ body.subpage {
 }
 .schedule {
   flex-wrap: wrap;
+  padding-bottom: 40px;
+  min-height: 20em;
+  @include mid {
+    min-height: 30em;
+  }
   .col {
     flex-basis: 100%;
     text-align: left;
@@ -1013,8 +1035,11 @@ body.subpage {
     h2 {
       width: 100%;
       text-align: center;
-      margin: 0 0 25px 0;
-      font-size: 24px;
+      margin: 0 0 20px 0;
+      font-size: 20px;
+      font-weight: normal;
+      color: $primary;
+      text-transform: uppercase;
     }
     .musicnote {
       width: 30px;
@@ -1050,7 +1075,7 @@ section.schedule-music {
   justify-content: space-between;
   .col-wrap {
     width: 100%;
-    padding: 25px;
+    padding: 0;
     margin: 0 0 30px 0;
     background-color: $teal;
     color: $cream;
@@ -1101,7 +1126,7 @@ section.schedule-music {
       color: $red_orange;
     }
     .time {
-      color:$red_orange;
+      color:#faf0d0;
       font-size: 18px;
     }
     .first {
@@ -1109,7 +1134,8 @@ section.schedule-music {
     }
     .title {
       // text-transform: uppercase;
-      font-size: 20px;
+      font-size: 18px;
+      font-weight: normal;
       line-height: 1.1;
       a {
         text-decoration: none;
@@ -1124,7 +1150,7 @@ section.schedule-music {
     
     li {
       list-style: none;
-      margin: 0 0 25px 0;
+      margin: 0 0 0 0;
       &.item {
         width: 100%;
         position: relative;
@@ -1144,10 +1170,41 @@ section.schedule-music {
         }
       }
       &.bike a, &.trail-run a, &.raft a, &.adventure-obstacle a, &.deep-water-solo a, &.swim a, &.kayak a, &.sup a, &.climb a {
-        background-color: $darkgreen;
+        background-color: #EB8B01;
       }
       &.yoga a {
         background-color: $darkgreen;
+      }
+    }
+  }
+  ul {
+    margin:0 0;
+    padding: 0 0;
+    li {
+      margin:0 0;
+      padding: 0 0;
+    }
+    li:first-child a {
+      background-color: $primary;
+    }
+    a {
+      background-color: #508f9a;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      text-decoration: none;
+      padding: 15px;
+      box-shadow: 0 0 15px 10px rgba(0,0,0,0) inset;
+      div.time {
+        width: 100%;
+      }
+      * {
+        text-decoration: none;
+      }
+      &:hover {
+        // box-shadow: 0 0 1px 5px rgba(0,0,0,0.1) inset;
+        // box-shadow: 0 0 40px 15px rgba(0,0,0,0.15) inset;
+        box-shadow: 0 0 10px 10px rgba(0,0,0,0.1) inset;
       }
     }
   }
@@ -1162,6 +1219,7 @@ section.schedule-music {
 #filters {
   @media screen and (min-width: $tabwidth) {
     display: flex;
+    align-items: center;
   }
 }
 #filters, .drops {
@@ -1176,18 +1234,27 @@ section.schedule-music {
     padding: 50px 0px;
   }
   h2 {
-    font-size: 20px;
-    margin: 0 20px 0 0;
-    @media screen and (min-width: $tabwidth) {
-      font-size: 24px;
-      display: inline-block;
-    }
-    @media screen and (min-width: $deskwidth) {
-      font-size: 28px;
-    }
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0 15px 0 0;
+    text-transform: uppercase;
+    color: $primary;
+    position: relative;
+    top: -2px;
+    // @media screen and (min-width: $tabwidth) {
+    //   font-size: 24px;
+    //   display: inline-block;
+    // }
+    // @media screen and (min-width: $deskwidth) {
+    //   font-size: 20px;
+    // }
+  }
+  .filter_field {
+    position: relative;
   }
   .types {
-    margin-bottom: 15px;
+    margin-bottom: 0;
   }
   select {display: none;}
   .days .select-styled {
@@ -1206,11 +1273,10 @@ section.schedule-music {
     position: relative;
     font-size: 12px;
     width: 100%;
-    height: 60px;
+    height: 35px;
     @media screen and (min-width: $tabwidth) {
       width: 380px;
       font-size: 14px;
-      height: 50px;
   }
     // padding: 15px 0;
   }
@@ -1222,13 +1288,14 @@ section.schedule-music {
     right: 0;
     bottom: 0;
     left: 0;
-    color: $body_color;
-    background-color: $red_orange;
+    color: $primary;
+    border: 1px solid $primary;
+    background-color: transparent;
     &.blue {
       background-color: $red_orange;
       color: $red_orange;
     }
-    padding: 15px 15px 8px 15px;
+    padding: 5px 15px 8px 15px;
     text-transform: uppercase;
     // font-family: $font-coco;
     
@@ -1237,7 +1304,6 @@ section.schedule-music {
     }
     background: {
       position: right 15px top 20px;
-      image: url(images/select-downarrow.png);
       repeat: no-repeat;
       size: 20px;
     }
@@ -1250,16 +1316,34 @@ section.schedule-music {
     @media screen and (min-width: $tabwidth) {
       width: 380px;
     }
-    &:after {
-      content:"";
+    // &:after {
+    //   content:"";
 
-      width: 0;
-      height: 0;
-      border: 7px solid transparent;
-      // border-color: $select-color transparent transparent transparent;
+    //   width: 0;
+    //   height: 0;
+    //   border: 7px solid transparent;
+    //   // border-color: $select-color transparent transparent transparent;
+    //   position: absolute;
+    //   top: 16px;
+    //   right: 10px;
+    // }
+
+    &:before, &:after {
+      content: "";
+      display: block;
+      width: 12px;
+      height: 2px;
+      background: #235B4E;
       position: absolute;
-      top: 16px;
-      right: 10px;
+      top: 15px;
+      right: 15px;
+      border: none;
+    }
+    &:before {
+      transform: translateX(-4px) rotate(42deg);
+    }
+    &:after {
+      transform: translateX(4px) rotate(-42deg);
     }
   }
   .select-options {
@@ -1274,7 +1358,8 @@ section.schedule-music {
     margin: 0;
     padding: 0;
     list-style: none;
-    background-color: darken($red_orange, 5);
+    background-color: $yellow_orange;
+    border-bottom: 1px solid $primary;
     &.blue {
       background-color: darken($darkgreen, 5);
     }
@@ -1288,11 +1373,13 @@ section.schedule-music {
       padding: 12px 0;
       text-indent: 15px;
       text-align: left;
-      border-top: 1px solid darken($teal, 10);
+      font-weight: bold;
+      color: #1d484f;
+      border-top: 1px solid $primary;
       @include transition(all 0.15s ease-in);
       &:hover {
         color: #fff;
-        background: $red_orange;
+        background: tint($yellow_orange,30%);
       }
       &[rel="hide"] {
         display: none;

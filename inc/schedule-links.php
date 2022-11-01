@@ -151,7 +151,8 @@ if( $postType == 'music' ) {
 	$page = '2020-artists';
 	// echo 'mussiiic';
 
-	$url = get_bloginfo('url').'/tuckfest-music/2020-artists/#'.$hash;
+	//$url = get_bloginfo('url').'/tuckfest-music/2020-artists/#'.$hash;
+  $url = get_permalink($theID);
 // } elseif ( $postType == 'demo_clinic' ) {
 // 	$url = get_bloginfo('url').'/clinics/#'.$hash;
 } else {

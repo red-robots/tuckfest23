@@ -200,4 +200,30 @@ $('.question').click(function() {
   });
 
 
+  /* ==============
+       FILTER 
+  ================== */
+  $('#filters .select-styled').click(function() {
+    $(this).next('.select-options').slideToggle();
+  });
+  $(document).on('click','.select-options li',function(){
+    var parent = $(this).parents('div.select');
+    var slug = $(this).attr('rel').replace('.','');
+    var selected = $(this).text().trim();
+    parent.find('.select-styled').text(selected);
+    parent.find('.select-options').slideUp('fast');
+    /* if ALL */
+    if(slug=='sched-act') {
+      $('.schedule ul.list li').show();
+    } else {
+      $('.schedule ul.list li').each(function(){
+        if( $(this).hasClass(slug) ) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+      });
+    }
+  });
+
 }); 
