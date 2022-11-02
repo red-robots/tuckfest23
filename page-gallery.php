@@ -25,51 +25,59 @@ if($soon !== 'soon') :
         <div class="wrapper"><?php the_content(); ?></div>
       </section>
       <section class="photo-gallery">
-			<?php 
+        <div class="inner">
+  			<?php 
 
-			$gallery = get_field('gallery');
+  			$gallery = get_field('gallery');
 
-			foreach ( $gallery as $image ) { 
+  			foreach ( $gallery as $image ) { 
 
-				// echo '<pre>';
-				// print_r($image);
-				// echo $i;
-				// echo '</pre>';
+  				// echo '<pre>';
+  				// print_r($image);
+  				// echo $i;
+  				// echo '</pre>';
 
-				if( $image['caption'] ) {
-					$output = $image['caption'];
-					$class='youtube';
-					$i++;
-				} else {
-					$output = $image['url'];
-					$class='gallery';
-				}
-				
+  				if( $image['caption'] ) {
+  					$output = $image['caption'];
+  					$class='youtube';
+  					$i++;
+  				} else {
+  					$output = $image['url'];
+  					$class='gallery';
+  				}
+  				
 
-				?>
-				<div class="gal-thumb">
-					<?php if( $image['caption'] ) { ?>
-						<a class="<?php echo $class; ?>" href="#video-<?php echo $i; ?>">
-							<img src="<?php echo $image['sizes']['tile']; ?>">
-						</a>
-					<?php } else { ?>
-						<a class="<?php echo $class; ?>" href="<?php echo $output; ?>">
-							<img src="<?php echo $image['sizes']['tile']; ?>">
-						</a>
-					<?php } ?>
-						
-					</div>
+  				?>
+  				<div class="gal-thumb">
+  					<?php if( $image['caption'] ) { ?>
+            <a class="<?php echo $class; ?>" href="#video-<?php echo $i; ?>">
+              <figure style="background-image:url('<?php echo $image['sizes']['tile']; ?>');">
+                <img src="<?php echo $image['sizes']['tile']; ?>" class="actual">
+                <img src="<?php echo get_stylesheet_directory_uri() ?>/images/resizer-square.png" alt="" class="resizer">
+              </figure>
+            </a>
+  					<?php } else { ?>
+            <a class="<?php echo $class; ?>" href="<?php echo $output; ?>">
+              <figure style="background-image:url('<?php echo $image['sizes']['tile']; ?>');">
+                <img src="<?php echo $image['sizes']['tile']; ?>" class="actual">
+                <img src="<?php echo get_stylesheet_directory_uri() ?>/images/resizer-square.png" alt="" class="resizer">
+              </figure>
+            </a>
+  					<?php } ?>
+  						
+  					</div>
 
-					<?php if( $image['caption'] ) { ?>
-						<div style="display: none;">
-							<div id="video-<?php echo $i; ?>" class="video">
-								<?php echo wp_oembed_get($output); ?>
-							</div>
-						</div>
-					<?php } ?>
+  					<?php if( $image['caption'] ) { ?>
+  						<div style="display: none;">
+  							<div id="video-<?php echo $i; ?>" class="video">
+  								<?php echo wp_oembed_get($output); ?>
+  							</div>
+  						</div>
+  					<?php } ?>
 
-			<?php }
-			 ?>
+  			<?php }
+  			 ?>
+      </div>
 		</section>
       <?php //} ?>
 		<?php endwhile; ?>	

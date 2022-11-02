@@ -1543,22 +1543,65 @@ section.faqs {
     }
 }
 section.photo-gallery {
-  width: 90%;
-  overflow: hidden;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  margin:0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  .inner {
+    @include flexgroup();
+    margin-left: -5px;
+    margin-right: -5px;
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
 }
 section.photo-gallery .gal-thumb {
-  width: 240px;
-  height: 240px;
-  margin: 5px;
-  float: left;
-}
-section.photo-gallery .gal-thumb img {
   width: 100%;
+  padding: 5px;
+  @include xs {
+    width: 50%;
+  }
+  @include tab {
+    width: 33.333%;
+  }
+  @include mid {
+    width: 20%;
+  }
+  a {
+    display: block;
+    width: 100%;
+    float: left;
+    overflow: hidden;
+    background-color: #d6c1a5;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    float: left;
+  }
+  img.actual {
+    display: none;
+  }
+  img.resizer {
+    display: block;
+  }
+  figure {
+    display: block;
+    width: 100%;
+    float: left;
+    margin:0 0;
+    padding: 0 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all ease .3s;
+  }
+  a:hover {
+    figure {
+      box-shadow: 0 0 50px rgba(0,0,0,0.45) inset;
+    }
+  }
 }
 .flexcol-content {
   @include flexgroup();
