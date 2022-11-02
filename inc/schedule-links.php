@@ -114,15 +114,17 @@ if( $postType == 'music') {
 	$taxSlug = 'event-day';
 	$tax = 'event_day';
 } elseif( $postType == 'competition') {
-	$taxSlug = 'competition-type';
+	$taxSlug = 'competition_type';
 	$tax = 'competition_type';
 } elseif( $postType == 'demo_clinic') {
-	$taxSlug = 'demo-clinic-type';
+	$taxSlug = 'demo_clinic_type';
 	$tax = 'demo_clinic_type';
 } elseif( $postType == 'yoga') {
 	$taxSlug = 'yoga-day';
 	$tax = 'yoga_day';
 }
+
+
 if( $tax != '' ) {
 	$terms = get_the_terms($theID, $tax );
 
