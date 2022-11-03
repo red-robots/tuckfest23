@@ -502,5 +502,19 @@ function getPostContentHTML($obj) {
 }
 
 
+function getPostTerms($posttype,$taxonomy,$orderby=null) {
+  $args = array(
+    'taxonomy' => $taxonomy,
+    'post_types'=> array($posttype),
+    'hide_empty' => 1,
+  );
+
+  if($orderby && count($orderby)==2 ) {
+    $args['orderby'] = $orderby[0];
+    $args['order'] = $orderby[1];
+  }
+  $terms = get_terms($args);
+  return $terms;
+}
 
 

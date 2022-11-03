@@ -22,11 +22,11 @@
 
 
 			if( $postType == 'demo_clinic' ) {
-				$termz = get_the_terms($post_id, 'demo_clinic_type');
-				foreach ( $termz as $t ) {
-					// echo 'hey '.$t->slug;
-					$classes .= ' '.$t->slug;
-				}
+				if( $termz = get_the_terms($post_id, 'demo_clinic_type') ) {
+  				foreach ( $termz as $t ) {
+  					$classes .= ' '.$t->slug;
+  				}
+        }
 				// $classes .= $post_id;
 			}
 			// $demC = get_the_terms($post_id, 'demo_clinic');
@@ -114,10 +114,10 @@ if( $postType == 'music') {
 	$taxSlug = 'event-day';
 	$tax = 'event_day';
 } elseif( $postType == 'competition') {
-	$taxSlug = 'competition_type';
+	$taxSlug = 'competition-type';
 	$tax = 'competition_type';
 } elseif( $postType == 'demo_clinic') {
-	$taxSlug = 'demo_clinic_type';
+	$taxSlug = 'demo-clinic-type';
 	$tax = 'demo_clinic_type';
 } elseif( $postType == 'yoga') {
 	$taxSlug = 'yoga-day';

@@ -203,10 +203,11 @@ $('.question').click(function() {
   /* ==============
        FILTER 
   ================== */
-  $('#filters .select-styled').click(function() {
+  /* SCHEDULE page */
+  $('.types .select-styled').click(function() {
     $(this).next('.select-options').slideToggle();
   });
-  $(document).on('click','.select-options li',function(){
+  $(document).on('click','.types .select-options li',function(){
     var parent = $(this).parents('div.select');
     var slug = $(this).attr('rel').replace('.','');
     var selected = $(this).text().trim();
@@ -226,4 +227,89 @@ $('.question').click(function() {
     }
   });
 
+
+  $('.filter-custom .select-styled').click(function() {
+    $(this).next('.select-options').slideToggle();
+    $('.filter-custom .select-styled').not(this).next('.select-options').slideUp();
+  });
+
+  $(document).on('click','.filter-custom .select .select-options li', function (e) {
+    e.preventDefault();
+    var slug = $(this).attr('rel');
+    var selected = $(this).text().trim();
+    var parent = $(this).parents('div.select');
+    parent.find('.select-styled').text(selected);
+    parent.find('.select-styled').attr('data-selected',slug);
+    parent.find('.select-options').slideUp('fast');
+    /* if ALL */
+    // if(slug=='all') {
+    //   $('.repeatable-content-blocks .content-block').show();
+    // } else {
+    //   $('.repeatable-content-blocks .content-block').each(function(){
+    //     if( $(this).hasClass(slug) ) {
+    //       $(this).show();
+    //     } else {
+    //       $(this).hide();
+    //     }
+    //   });
+    // }
+
+    /* Check first other filters */
+    var selectedFilters = [];
+    $('.filter-custom .select-styled').each(function(){
+      var selected = $(this).attr('data-selected');
+      if(selected!='all') {
+        selectedFilters.push(selected);
+      }
+      
+    });
+
+    //let uniqueItems = (selectedFilters.length) ? unique(selectedFilters) : '';
+
+    let selectedList = (selectedFilters.length) ? '.'+selectedFilters.join('.') : '';
+    $('.repeatable-content-blocks .content-block').not(selectedList).hide();
+    if( $('.repeatable-content-blocks .content-block'+selectedList).length ) {
+      $('.repeatable-content-blocks .content-block').hide().removeClass('found');
+      $('.repeatable-content-blocks .content-block'+selectedList).show().addClass('found');
+    } else {
+      $('.repeatable-content-blocks .content-block').hide().removeClass('found');
+    }
+    //checkFoundItems();
+  });
+
+  function checkFoundItems() {
+    var count = $('.repeatable-content-blocks .content-block.found').length;
+    if(count) {
+      $('h3.notfound').remove();
+    } else {
+      if( $('h3.notfound').length==0 ) {
+        $('.repeatable-content-blocks .wrapper').append('<h3 class="notfound">No record found.</h3>');
+      }
+    }
+  }
+
+  /* Close Filter */
+  $(document).on('click', function (e) {
+    if ($(e.target).closest("div.select").length === 0) {
+      $("div.select .select-options").slideUp();
+    }
+  });
+
+  function unique(array){
+    return array.filter(function(el, index, arr) {
+        return index == arr.indexOf(el);
+    });
+  }
+
+
+
+
+  $('#filterStyle select').each(function(){
+    //$(this).niceSelect();
+    $(this).find('option').each(function(){
+      console.log( this.value );
+    });
+  });
+
 }); 
+

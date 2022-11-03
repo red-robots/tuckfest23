@@ -1,7 +1,7 @@
 <!-- SELECT --><!-- SELECT --><!-- SELECT --><!-- SELECT --><!-- SELECT -->
 <div class="wrapper">
 <div class="filters" id="filters">
-<h2>Filter By</h2>
+<div class="filter-title">Filter By</div>
 <?php 
 $i=0;
 /*
