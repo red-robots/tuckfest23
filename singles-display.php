@@ -1,11 +1,14 @@
 <?php 
 
-get_template_part('inc/subpage-banner'); 
+//get_template_part('parts/hero-subpage.php'); 
 $posttype = get_post_type();
 
 
 ?>
-
+  <header class="entry-title">
+    <h1><?php echo get_the_title(); ?></h1>
+  </header>
+  <?php get_template_part('parts/hero-subpage'); ?>
 	<div id="primary" class="content-area-full single-competition">
 		<main id="main" class="site-main" role="main">
 
@@ -27,15 +30,13 @@ $posttype = get_post_type();
 	  // echo '</pre>';
       ?>
       <div class="wrapper pagecontent">
-        <!-- <h2 class="entry-title"><?php the_title(); ?></h2> -->
-
         <?php if ($start_date || $registrationLink) { ?>
         <ul class="tabs-info">
           <?php if ($start_date) { ?>
-            <li><span class="orange"><a href="#" data-tab="#eventinfo" class="tablink"><?php echo $start_date ?></a></span></li>
+            <li><span class="orange active"><a href="#" data-tab="#eventinfo" class="tablink"><?php echo $start_date ?></a></span></li>
           <?php } ?>
           <?php if($posttype === 'competition'){ ?>
-	            <li><span class="red"><a href="<?php echo $registrationLink ?>" target="_blank">Register</a></span></li>
+	            <li><span class="yellow"><a href="<?php echo $registrationLink ?>" target="_blank">Register</a></span></li>
 	        <?php } ?>
           <?php if( have_rows('past_results') ) { ?>  
             <li><span class="gray"><a href="#" data-tab="#pastresults" class="tablink">Past Results</a></span></li>
@@ -210,7 +211,10 @@ jQuery(document).ready(function($){
   $(".tablink").on("click",function(e){
     e.preventDefault();
     var tabID = $(this).attr("data-tab");
+    var parent = $(this).parent();
     $(".tab-panel").not(tabID).removeClass('active');
+    $('ul.tabs-info li span').removeClass('active');
+    parent.addClass('active');
     $(tabID).addClass("active");
   });
 });

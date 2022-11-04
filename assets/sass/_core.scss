@@ -940,6 +940,300 @@ body.subpage {
   }
 }
 
+#primary.single-competition {
+  width: 100%;
+  float: left;
+  padding: 50px 0;
+  #main {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .entry-title {
+    margin: 0 0 50px;
+  }
+  .event-info {
+    width: 100%;
+    float: left;
+    background: $darkgreen;
+    color: $text_color;
+    font-family: $font_secondary;
+    font-size: 16px;
+    line-height: 1.3;
+    .pad {
+      padding: 20px;
+    }
+    strong {
+      font-weight: 500;
+    }
+    a {
+      color: $yellow_orange;
+      &:hover {
+        color: tint($yellow_orange,20%);
+      }
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+    .comp-footer {
+      width: 100%;
+      padding: 10px 0 0 0;
+      border-top: 1px solid $yellow_orange;
+      text-align: center;
+      @media screen and (min-width: $tabwidth) {
+        text-align: left;
+      }
+      .other-links-btn {
+        display: inline-block;
+        -webkit-transition: all ease .2s;
+        transition: all ease .2s;
+        text-decoration: none;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 15px;
+        text-align: center;
+        a {
+          display: block;
+          min-width: 230px;
+          background-color: $secondary;
+          color: #FFF;
+          padding: 10px 25px;
+          text-decoration: none;
+          &:hover {
+            background-color: tint($secondary,20%);
+          }
+        }
+        @include tab {
+          margin-right: 15px;
+          margin-left: 0;
+          margin-bottom: 0;
+          min-width: unset;
+        }
+      }
+    }
+  }
+  .map-image,
+  .map-image img {
+    width: 100%;
+    height: auto;
+    float: left;
+  }
+  .result-section {
+    width: 100%;
+    float: left;
+    background: #FFF;
+    .flexwrap {
+      @include flexgroup();
+      padding: 20px;
+      @include mid {
+        padding: 30px;
+      }
+    }
+    .imagecol,
+    .textcol {
+      width: 100%;
+    }
+    .imagecol {
+      @include mid {
+        width: 30%;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    .textcol {
+      @include mid {
+        width: 70%;
+        padding-left: 30px;
+      }
+    }
+  }
+
+  .resultsCol {
+    .title-orange {
+      margin-bottom: 20px;
+    }
+    .coming-soon {
+      font-size: 16px;
+    }
+    .catname {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: $darkgreen;
+      margin:0 0 5px;
+      letter-spacing: 0;
+      border-bottom: 1px solid $darkgreen;
+    }
+    .result-item {
+      margin-bottom: 20px;
+    }
+    .result-list {
+      .item {
+        margin: 5px 0;
+        color: $darkgreen;
+      }
+      .item,
+      .item a {
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.2;
+      }
+      a {
+        display: inline-block;
+        text-decoration: none;
+        color: $orange;
+        &:hover {
+          color: $darkgreen;
+        }
+      }
+    }
+  }
+}
+#primary.single-competition .event-info.pastresults {
+  .tab-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: $text_color;
+    margin:0 0 20px;
+  }
+  .year {
+    margin: 0 0;
+    font-weight: bold;
+    font-size: 18px;
+    border-bottom: 1px solid $text_color;
+  }
+  .past-year {
+    margin-bottom: 30px;
+  }
+  .past-year:last-child {
+    margin-bottom: 0;
+  }
+  .divisions {
+    .flexwrap {
+      @include flexgroup();
+      margin-left: -10px;
+      margin-right: -10px;
+      .cat-info {
+        width: 100%;
+        padding: 10px;
+        @include tab {
+          width: 33.33%;
+        }
+      }
+    }
+    .cat {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin:0 0 5px;
+      text-transform: uppercase;
+      color: $text_color;
+    }
+  }
+  .item a {
+    display: inline-block;
+    text-decoration: none;
+    color: $text_color;
+    &:hover {
+      color: $orange;
+    }
+  }
+} 
+.tab-panel {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+ul.tabs-info {
+  margin: 0 0;
+  padding: 0 0;
+  list-style: none;
+  width: 100%;
+  float: left;
+  position: relative;
+  @include mid {
+    left: -2px;
+  }
+  li {
+    display: inline-block;
+    float: left;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $text_color;
+    margin:0;
+    width: 100%;
+    @media screen and (min-width: $tabwidth) {
+      width: auto;
+      margin:0 2px;
+    }
+  }
+  a, span.nolink {
+    padding: 4px 15px;
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    color: $text_color;
+    width: 100%;
+    @media screen and (min-width: $tabwidth) {
+      display: inline-block;
+    }
+  }
+  span {
+    display: inline-block;
+
+  }
+  span.orange {
+    background: $orange;
+
+  }
+  span.yellow {
+    background: $yellow_orange;
+    a:hover {
+      background:shade($yellow_orange,30%);
+    }
+  }
+  span.red {
+    background: $red_orange;
+    a:hover {
+      background:shade($red_orange,30%);
+    }
+  }
+  span.gray {
+    background: #6c6c6c;
+    a:hover {
+      background:shade(#6c6c6c,30%);
+    }
+  }
+  span.active {
+    background: $darkgreen;
+    a:hover {
+      background:$darkgreen;
+    }
+  }
+}
+span.gray, span.red, span.orange {
+  width: 100%;
+}
+.footer-sponsors {
+  text-align: center;
+  width: 100%;
+  span.sponsor-logo {
+    display: inline-block;
+    a {
+      display: inline-block;
+    }
+    img {
+      width: 120px;
+      height: auto;
+    }
+  }
+}
 
 
 /* FOOTER */
@@ -1429,7 +1723,6 @@ section.schedule-music {
     a {
       display: inline-block;
       text-decoration: none;
-      // font-family: $font1;
       font-size: 13px;
       font-weight: 500;
       text-transform: uppercase;
@@ -1622,7 +1915,6 @@ section.photo-gallery .gal-thumb {
     margin:0 -20px;
   }
   h2,h3,h4,h5,h6 {
-    // font-family: $font1;
     font-weight: 600;
     color: #fff;
   }
