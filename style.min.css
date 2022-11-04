@@ -1427,7 +1427,7 @@ body.subpage #primary{min-height:30em}
 .banner-subpage.noimage .banner-button{position:relative;top:-5px}
 .entry-content{font-family:"Catamaran",sans-serif;font-weight:normal}
 .entry-content.page-content{max-width:600px;padding-top:40px;margin:0 auto}
-.entry-title{background:#9e8c1f;position:relative;text-align:center;border-top:5px solid #f0d6b5;border-bottom:5px solid #f0d6b5}
+.entry-title{background:#9e8c1f;position:relative;text-align:center;border-top:5px solid #f0d6b5;border-bottom:5px solid #f0d6b5;position:relative}
 .entry-title:before,.entry-title:after{content:"";display:block;width:30vw;height:100%;position:absolute;top:0;background-image:url("assets/images/titlebg.svg");background-position:center;background-repeat:no-repeat;background-size:cover}
 .entry-title:before{left:0}
 .entry-title:after{right:0}
@@ -1552,6 +1552,10 @@ span.gray,span.red,span.orange{width:100%}
 .footer-sponsors span.sponsor-logo{display:inline-block}
 .footer-sponsors span.sponsor-logo a{display:inline-block}
 .footer-sponsors span.sponsor-logo img{width:120px;height:auto}
+.page404 .entry-title .small-title{position:relative;color:#f0d6b5;top:15px;font-size:18px}
+.page404 .innerText{margin:40px 0 50px;background:#407078;padding:20px;font-family:"Catamaran",sans-serif;font-size:16px;color:#f0d6b5}
+.page404 .innerText a{color:#f0d6b5;text-decoration:none}
+.page404 .innerText a:hover{color:#eb8b01}
 .site-footer{width:100%;float:left;background:#9e8c1f}
 .site-footer .wrapper{padding:30px 20px 30px}
 .site-footer .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
@@ -1671,6 +1675,7 @@ section.photo-gallery .gal-thumb a:hover figure{-webkit-box-shadow:0 0 50px rgba
 .repeatable-content-blocks .content-block:nth-child(even){-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
 #primary.single-competition .event-info .comp-footer .other-links-btn{margin-right:15px;margin-left:0;margin-bottom:0;min-width:unset}
 #primary.single-competition .event-info.pastresults .divisions .flexwrap .cat-info{width:33.33%}
+.page404 #sitemap>ul{-webkit-column-count:2;-moz-column-count:2;column-count:2}
 .site-footer .wrapper{padding:20px 20px 15px}
 .site-footer .flexwrap{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 .site-footer #footlogo{margin-bottom:0}

@@ -506,6 +506,7 @@ body.subpage {
   text-align: center;
   border-top: 5px solid $cream;
   border-bottom: 5px solid $cream;
+  position: relative;
   &:before, &:after {
     content:"";
     display: block;
@@ -1231,6 +1232,36 @@ span.gray, span.red, span.orange {
     img {
       width: 120px;
       height: auto;
+    }
+  }
+}
+
+/* 404 */
+.page404 {
+  .entry-title .small-title {
+    position: relative;
+    color: $cream;
+    top: 15px;
+    font-size: 18px;
+  }
+  .innerText {
+    margin: 40px 0 50px;
+    background: $primary;
+    padding: 20px;
+    font-family: $font_secondary;
+    font-size: 16px;
+    color: $cream;
+    a {
+      color: $cream;
+      text-decoration: none;
+      &:hover {
+        color: $yellow_orange;
+      }
+    }
+  }
+  #sitemap > ul {
+    @include tab {
+      column-count: 2;
     }
   }
 }
