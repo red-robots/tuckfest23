@@ -1513,7 +1513,7 @@ body.subpage #primary{min-height:30em}
 #primary.single-competition .result-section{width:100%;float:left;background:#fff}
 #primary.single-competition .result-section .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding:20px}
 #primary.single-competition .result-section .imagecol,#primary.single-competition .result-section .textcol{width:100%}
-#primary.single-competition .result-section .imagecol img{width:100%}
+#primary.single-competition .result-section .imagecol img{width:100%;height:auto}
 #primary.single-competition .resultsCol .title-orange{margin-bottom:20px}
 #primary.single-competition .resultsCol .coming-soon{font-size:16px}
 #primary.single-competition .resultsCol .catname{font-size:15px;font-weight:600;line-height:1.2;color:#396971;margin:0 0 5px;letter-spacing:0;border-bottom:1px solid #396971}
