@@ -838,7 +838,8 @@ body.subpage {
       font-weight: 500;
       line-height: 1.2;
       margin: 0 0 20px;
-      color: $cream;
+      // color: $cream;
+      color:$darkgreen;
       text-transform: uppercase;
       letter-spacing: 2px;
       span {
@@ -913,7 +914,8 @@ body.subpage {
       //   }
       // }
       .rb_title {
-        color: $cream;
+        // color: $cream;
+        color: $darkgreen;
       }
     }
     // .rb_content .elt:last-child {
@@ -1473,7 +1475,7 @@ section.schedule-music {
         text-decoration: none;
         color: $yellowish;
         // border-bottom: 1px solid $color-blue;
-        @include transition(all ease .2s);
+        transition: all ease .2s;
         &:hover {
           // border-bottom: 1px solid #fff;
         }
@@ -1649,7 +1651,7 @@ section.schedule-music {
       background-position: right 20px top 20px;
       background-size: 25px;
     }
-    @include transition(all 0.2s ease-in);
+    transition: all 0.2s ease-in;
     // @media screen and (min-width: $tabwidth) {
     //   width: 380px;
     // }
@@ -1713,7 +1715,7 @@ section.schedule-music {
       font-weight: bold;
       color: #1d484f;
       border-top: 1px solid $primary;
-      @include transition(all 0.15s ease-in);
+      transition: all 0.15s ease-in;
       &:hover {
         color: #fff;
         background: tint($yellow_orange,30%);
@@ -1808,7 +1810,7 @@ section.faqs {
   line-height: 1.3;
   position: relative;
   padding: 0 0 0 20px ;
-  @include transition(all ease .3s);
+  transition: all ease .3s;
   &:hover {
     color: $red_orange;
     .plus-minus-toggle {

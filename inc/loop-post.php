@@ -27,7 +27,7 @@ if( ($title || $text) ||  $image ) { ?>
   <div class="textcol block">
     <div class="inside">
       <?php if ($title) { ?>
-       <h2 class="rb_title"><?php echo $title ?></h2> 
+       <h2 class="rb_title"><span><b><?php echo $title ?></b></span></h2>
       <?php } ?>
 
       <?php if ($text) { ?>
