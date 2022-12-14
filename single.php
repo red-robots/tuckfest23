@@ -11,9 +11,9 @@ $placeholder = THEMEURI . 'images/rectangle.png';
 $banner = get_field("banner");
 $has_banner = ($banner) ? 'hasbanner':'nobanner';
 get_header(); ?>
-<header class="entry-title">
+<!-- <header class="entry-title">
   <h1><?php the_title(); ?></h1>
-</header>
+</header> -->
 <?php get_template_part('singles-display'); ?>
 <div id="primary" class="content-area-full content-default single-default-template <?php echo $has_banner ?>">
 	<main id="main" class="site-main wrapper" role="main">
@@ -24,7 +24,7 @@ get_header(); ?>
 				<!-- <h1 class="page-title"><?php the_title(); ?></h1> -->
 			<?php //} ?>
 			<div class="entry-content">
-				<?php the_content(); ?>
+				<?php //the_content(); ?>
 			</div>
 
 		<?php endwhile; ?>

@@ -70,6 +70,7 @@ $sunEndTime = get_field('sunday_time_p_end');
 // print_r($thurTime);
 // echo '</pre>';
 if( $queried_object->slug == 'thursday' ) {
+	$pp = get_field('thursday_schedule', 'option');
 	$startTime = $thurTime;
 	$EndTime = $thurEndTime;
 	$regStart = get_field('thursday_start', 'option');
@@ -79,6 +80,7 @@ if( $queried_object->slug == 'thursday' ) {
 	$regEndTwo = get_field('thursday_end_2', 'option');
 	$actTime = '10:00 am - 6:00 pm';
 }elseif( $queried_object->slug == 'friday' ) {
+	$pp = get_field('friday_schedule', 'option');
 	$startTime = $friTime;
 	$EndTime = $friEndTime;
 	$regStart = get_field('friday_start', 'option');
@@ -88,6 +90,7 @@ if( $queried_object->slug == 'thursday' ) {
 	$regEndTwo = get_field('friday_end_2', 'option');
 	$actTime = '10:00 am - 7:00 pm';
 }elseif( $queried_object->slug == 'saturday' ) {
+	$pp = get_field('saturday_schedule', 'option');
 	$startTime = $satTime;
 	$EndTime = $satEndTime;
 	$regStart = get_field('saturday_start', 'option');
@@ -97,6 +100,7 @@ if( $queried_object->slug == 'thursday' ) {
 	$regLink = get_field('saturday_time_link', 'option');
 	$actTime = '10:00 am - 7:00 pm';
 }elseif( $queried_object->slug == 'sunday' ) {
+	$pp = get_field('sunday_schedule', 'option');
 	$startTime = $sunTime;
 	$EndTime = $sunEndTime;
 	$regStart = get_field('sunday_start', 'option');
@@ -168,9 +172,11 @@ if( $i == 1 ) {
 ?>
 	<li class="item ">
 		<a href="<?php echo $regLink; ?>">
-			<div class="title first">
-				Tuck Fest Registration & Packet Pick-up
-			</div>
+			<?php if( $pp ){ ?>
+				<div class="title first ">
+					<?php echo $pp; ?>
+				</div>
+			<?php } ?>
 			<div class="time">
 				<?php 
 				if( $regStart && $regEnd ) {

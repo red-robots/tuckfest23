@@ -30,7 +30,7 @@ if ( $posts->have_posts() ) { ?>
       $div3rdcol = 'post-type-'.$postType;
       //$div3rdcol .= ( ($i % 3==0) || ($i==$current_count) ) ? ' third':'';
       //$div3rdcol .= ($i==$current_count) ? ' last':'';
-      $pagelink = ($postType=='music') ? 'javascript:void(0)' : get_permalink();
+      $pagelink = ($postType=='music') ? 'Event.preventDefault()' : get_permalink();
       ?>
       <?php if ($i==1 && $postType=='music') { ?>
        <div class="parent-wrap <?php echo $div3rdcol ?>"> 

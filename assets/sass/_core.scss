@@ -551,6 +551,9 @@ body.subpage {
 
 .feeds-wrapper {
   padding: 50px 0;
+  @media only screen and (min-width: $tabwidth) {
+    padding: 50px 0 400px 0;
+  }
   .columns {
     margin-left: -10px;
     margin-right: -10px;
@@ -2010,4 +2013,44 @@ section.photo-gallery .gal-thumb {
       }
     }
   }
+}
+.vendors {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  @media only screen and (min-width: $tabwidth) {
+
+  }
+  .ven {
+    width: 30%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    margin: 10px 10px 20px 10px;
+    flex-basis: 30%;
+
+    @media only screen and (min-width: $tabwidth) {
+      width: 22%;
+      flex-basis: 22%;
+    }
+    img {
+      width: 100%;
+      transform: scale(1);
+      transition: all ease .2s;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+.imagecol.xtra {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+.nowrap {
+    white-space: nowrap;
 }

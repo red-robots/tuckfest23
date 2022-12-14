@@ -1655,6 +1655,12 @@ section.photo-gallery .gal-thumb a:hover figure{-webkit-box-shadow:0 0 50px rgba
 .flexcol-content .flexcol.fl .inside{color:#fff;background:#9e8c1f;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-line-pack:center;align-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .flexcol-content .flexcol.fr .inside{color:#FFF;background:#e86349;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-line-pack:center;align-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .flexcol-content .flexcol.fr p{margin:0}
+.vendors{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.vendors .ven{width:30%;aspect-ratio:3/2;-o-object-fit:contain;object-fit:contain;margin:10px 10px 20px 10px;-ms-flex-preferred-size:30%;flex-basis:30%}
+.vendors .ven img{width:100%;-webkit-transform:scale(1);transform:scale(1);-webkit-transition:all ease .2s;transition:all ease .2s}
+.vendors .ven img:hover{-webkit-transform:scale(1.05);transform:scale(1.05)}
+.imagecol.xtra img{max-width:100%;height:auto}
+.nowrap{white-space:nowrap}
 @media screen and (min-width:600px){#cboxTitle{position:absolute;top:0;left:0;text-align:left;width:20%;font-weight:bold;color:#fff;padding:8% 2% 8% 2%;line-height:1.3;font-size:20px}
 }@media(min-width:600px){section.photo-gallery .gal-thumb{width:50%}
 }@media(min-width:820px){body{font-size:14px}
@@ -1673,10 +1679,12 @@ section.photo-gallery .gal-thumb a:hover figure{-webkit-box-shadow:0 0 50px rgba
 #footer-navigation ul.menu>li{float:left}
 section.photo-gallery .gal-thumb{width:33.333%}
 .flexcol-content .flexcol{padding:0}
-}@media only screen and (min-width:820px){.repeatable-content-blocks .content-block .imagecol .imagediv{height:100%}
+}@media only screen and (min-width:820px){.feeds-wrapper{padding:50px 0 400px 0}
+.repeatable-content-blocks .content-block .imagecol .imagediv{height:100%}
 .flexcol-content{margin:0 -20px}
 .flexcol-content .flexcol .inside{padding:5vw}
 .flexcol-content.half .flexcol{width:50%}
+.vendors .ven{width:22%;-ms-flex-preferred-size:22%;flex-basis:22%}
 }@media screen and (min-width:820px){#primary.single-competition .event-info .comp-footer{text-align:left}
 ul.tabs-info li{width:auto;margin:0 2px}
 ul.tabs-info a{display:inline-block}
