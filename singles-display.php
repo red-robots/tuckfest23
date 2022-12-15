@@ -14,7 +14,7 @@ $posttype = get_post_type();
 
 		<?php while ( have_posts() ) : the_post(); ?>
       <?php  
-      $registrationLink = get_field("registration_link","option");
+      $registrationLink = get_field("register_button","option");
       $eventStartDate = get_field("eventStartDate");
       $start_date = ($eventStartDate) ? date('l, M d, Y',strtotime($eventStartDate)) . ' <span>&ndash;</span> ' . date('h:i a',strtotime($eventStartDate)) : '';
       if( $posttype === 'competition' ) {
@@ -25,8 +25,8 @@ $posttype = get_post_type();
 	      }
 	      $termLink = get_term_link( $termID );
 	  }
-      // echo '<pre>';
-	  // print_r($termLink);
+   //    echo '<pre>';
+	  // print_r($registrationLink);
 	  // echo '</pre>';
       ?>
       <div class="wrapper pagecontent">
@@ -36,7 +36,7 @@ $posttype = get_post_type();
             <li><span class="orange active"><a href="#" data-tab="#eventinfo" class="tablink"><?php echo $start_date ?></a></span></li>
           <?php } ?>
           <?php if($posttype === 'competition'){ ?>
-	            <li><span class="yellow"><a href="<?php echo $registrationLink ?>" target="_blank">Register</a></span></li>
+	            <li><span class="yellow"><a href="<?php echo $registrationLink['url'] ?>" target="_blank">Register</a></span></li>
 	        <?php } ?>
           <?php if( have_rows('past_results') ) { ?>  
             <li><span class="gray"><a href="#" data-tab="#pastresults" class="tablink">Past Results</a></span></li>
