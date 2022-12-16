@@ -111,7 +111,7 @@ $brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url
       );
 
       if( $post->post_parent )  { ?>
-      <div class="drops-wrap">
+      <!-- <div class="drops-wrap">
         <div class="drops">
           <div class="select">
             <div class="select-styled blue"><?php the_title(); ?></div>
@@ -120,7 +120,7 @@ $brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url
             </ul>
           </div>
         </div>
-      </div>
+      </div> -->
       <?php } ?>
     <?php } ?>
 
