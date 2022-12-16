@@ -1416,7 +1416,7 @@ body.subpage #primary{min-height:30em}
 .banner-subpage .heroBtn:before{content:"";display:block;width:17px;height:17px;position:absolute;top:7px;left:18px;background-image:url("assets/images/checkbox.svg");background-size:contain;background-position:center;background-repeat:no-repeat}
 .banner-subpage .heroBtn:hover{background-color:#000}
 .banner-subpage.noimage .banner-button{position:relative;top:-5px}
-.entry-content{font-family:"Catamaran",sans-serif;font-weight:normal}
+.entry-content{font-family:"Catamaran",sans-serif;font-weight:normal;word-spacing:.3em}
 .entry-content.page-content{max-width:600px;padding-top:40px;margin:0 auto}
 .entry-title{background:#9e8c1f;position:relative;text-align:center;border-top:5px solid #f0d6b5;border-bottom:5px solid #f0d6b5;position:relative}
 .entry-title:before,.entry-title:after{content:"";display:block;width:30vw;height:100%;position:absolute;top:0;background-image:url("assets/images/titlebg.svg");background-position:center;background-repeat:no-repeat;background-size:cover}
@@ -1471,6 +1471,7 @@ body.subpage #primary{min-height:30em}
 .repeatable-content-blocks .content-block .imagecol .imagediv{width:100%;height:300px;float:left;background-size:cover;background-position:center;background-repeat:no-repeat}
 .repeatable-content-blocks .content-block .imagecol img{width:100%;height:auto;float:left;display:none}
 .repeatable-content-blocks .content-block .rb_buttons{margin-top:25px;margin-left:-10px}
+.repeatable-content-blocks .content-block .rb_buttons a{text-decoration:none}
 .repeatable-content-blocks .content-block .btn2{padding:6px 12px;background:#e86349;color:#FFF !important;margin:10px 10px}
 .repeatable-content-blocks .content-block .btn2:hover{background:#ffac30}
 .repeatable-content-blocks .content-block .btn2.btn-green{background:#396971}
