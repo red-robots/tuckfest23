@@ -12,7 +12,12 @@ $comingSoon = get_field('coming_soon');
 $soon = ( isset($comingSoon[0]) ) ? $comingSoon[0] : '';
 if($soon !== 'soon') :?>
 <header class="entry-title">
-  <h1><?php the_title(); ?></h1>
+  <h1>
+  	<?php 
+  	//get_queried_object()->term_id;
+  	echo get_term( get_queried_object_id() )->name; 
+  	?>
+  </h1>
 </header>
 <?php get_template_part('parts/hero-subpage'); ?>
 <div id="primary" class="content-area default-template">

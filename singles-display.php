@@ -6,7 +6,7 @@ $posttype = get_post_type();
 
 ?>
   <header class="entry-title">
-    <h1><?php echo get_the_title(); ?></h1>
+    <h1><?php the_title(); ?></h1>
   </header>
   <?php get_template_part('parts/hero-subpage'); ?>
 	<div id="primary" class="content-area-full single-competition">
