@@ -26,6 +26,23 @@ jQuery(document).ready(function($){
   //     el: '.swiper-scrollbar',
   //   },
   // });
+  /*
+    *
+    *   Mobile Nav
+    *
+    ------------------------------------*/
+$('.burger, .overlay').click(function(){
+  $('.burger').toggleClass('clicked');
+  $('.overlay').toggleClass('show');
+  $('nav').toggleClass('show');
+  $('body').toggleClass('overflow');
+});
+$('nav.mobilemenu li').click(function() {
+    $('nav.mobilemenu ul.dropdown').removeClass('active');
+    $(this).find('ul.dropdown').toggleClass('active');
+});
+
+
 
   $('#menutoggle').on('click',function(e){
     e.preventDefault();

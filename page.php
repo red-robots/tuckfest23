@@ -25,7 +25,7 @@ if($soon !== 'soon') :
 	<main id="main" class="site-main">
 		<?php while ( have_posts() ) : the_post(); ?>
       <?php if ( get_the_content() ) { ?>
-      <section class="entry-content page-content">
+      <section class="entry-content ">
         <div class="wrapper"><?php the_content(); ?></div>
       </section>
       <?php } ?>

@@ -39,6 +39,7 @@ function bellaworks_setup() {
     'primary' => esc_html__( 'Primary', 'bellaworks' ),
     'footer' => esc_html__( 'Footer', 'bellaworks' ),
     'sitemap' => esc_html__( 'Sitemap', 'bellaworks' ),
+    'primary-menu-mobile' => esc_html__( 'Mobile Menu', 'bellaworks' ),
   ) );
 
   /*

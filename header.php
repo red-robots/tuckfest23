@@ -52,6 +52,7 @@ $brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="wrapper wide">
+      <div class="burger"><span></span></div>
       <div class="flexwrap">
 
         <?php if ( !is_front_page() && !is_home() ) { ?>
@@ -68,6 +69,10 @@ $brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url
           <?php if ( has_nav_menu( 'primary' ) ) { ?>
     			<nav id="navigation" class="main-navigation animated fadeIn" role="navigation">
             <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container'=>false, 'menu_id' => 'primary-menu','link_before'=>'<span>','link_after'=>'</span>') ); ?>
+          </nav>
+
+          <nav class="mobilemenu">
+            <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu-mobile','link_before'=>'<span>','link_after'=>'</span>','container'=>false) ); ?>
           </nav>
 
           <?php } ?>

@@ -99,6 +99,14 @@ a {
 	position: relative;
 	@include flexgroup();
 }
+body.home {
+  .site {
+    padding-top: 50px;
+    @media only screen and (min-width: $tabwidth) {
+      padding-top: 0;
+    }
+  }
+}
 .site {
   position: relative;
   overflow-x: hidden;
@@ -111,12 +119,85 @@ a {
   margin:0 auto;
   padding-left: 20px;
   padding-right: 20px;
+  clear: both;
 }
-
+.mobilemenu {
+  ul {
+    margin: 0 0;
+    padding: 0 0;
+    list-style: none;
+    a {
+      // font-family: $font1;
+      font-size: 20px;
+      font-weight: 600;
+      color: $orange;
+      display: block;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+  } 
+  #primary-menu-mobile li {
+    transition: all 0.3s ease;
+    transform: translateX(40px);
+  }
+  #primary-menu-mobile > li {
+    margin: 30px 0;
+  }
+  ul.sub-menu {
+    transition: all 0.3s ease;
+    padding-left: 20px;
+    height: 0;
+    min-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 15;
+    a {
+      color: $teal;
+      font-size: 18px;
+      padding: 5px;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+    li.current-menu-item a,
+    li.current_page_item a {
+      color: $teal!important;
+      opacity: 0.4;
+      &:hover {
+        color: $teal!important;
+        opacity: 1;
+      }
+    }
+  }
+  #primary-menu-mobile li.current-menu-parent > a,
+  #primary-menu-mobile li.current_page_item > a {
+    color: $orange;
+  }
+  #primary-menu-mobile li.current-menu-parent,
+  #primary-menu-mobile > li:hover {
+    ul.sub-menu {
+      height: auto;
+      min-height: 50px;
+      opacity: 1;
+      overflow: visible;
+    }
+  }
+  &.show {
+    #primary-menu-mobile li {
+      transform: translateX(0);
+    }
+  }
+}
 #site-navigation {
   width: 100%;
   float: left;
   #navigation {
+    display: none;
+    @media only screen and (min-width: $tabwidth) {
+      display: block;
+    }
     text-align: center;
     padding: 15px 0 10px;
     ul.menu {
@@ -501,6 +582,24 @@ body.subpage {
     margin: 0 auto;
   }
 }
+body.page-id-62 {
+  .entry-title {
+    &:before, &:after {
+      content:"";
+      display: block;
+      width: 30vw;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background-image: none;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      // background-size: contain;
+    }
+  }
+}
+
 .entry-title {
   background: $secondary;
   position: relative;
@@ -521,6 +620,7 @@ body.subpage {
     background-size: cover;
     // background-size: contain;
   }
+
   &:before {
     left: 0;
   }
