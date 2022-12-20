@@ -1732,6 +1732,8 @@ section.photo-gallery .gal-thumb a:hover figure{-webkit-box-shadow:0 0 50px rgba
 .vendors .ven img:hover{-webkit-transform:scale(1.05);transform:scale(1.05)}
 .imagecol.xtra img{max-width:100%;height:auto}
 .nowrap{white-space:nowrap}
+.gform_page_footer input.button{padding:10px 25px;background-color:#9e8c1f;color:#fff}
+.gform_page_footer input.gform_button.button{padding:5px 25px}
 @media screen and (min-width:600px){#cboxTitle{position:absolute;top:0;left:0;text-align:left;width:20%;font-weight:bold;color:#fff;padding:8% 2% 8% 2%;line-height:1.3;font-size:20px}
 }@media(min-width:600px){section.photo-gallery .gal-thumb{width:50%}
 }@media(min-width:667px){nav.mobilemenu{padding:120px 90px 70px 90px}
