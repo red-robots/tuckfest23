@@ -358,7 +358,9 @@ function feeds_shortcode_func( $atts ) {
       'post_type'       => $post_type,
       'post_status'     => 'publish',
       'paged'           => $paged,
-      'facetwp'         => true
+      'facetwp'         => true,
+      'orderby'         => 'menu_order',
+      'order'           => 'ASC'
     );
     include( locate_template('parts/feeds.php') );
     $output = ob_get_contents();
