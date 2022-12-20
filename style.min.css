@@ -1523,6 +1523,8 @@ body.page-id-62 .entry-title:before,body.page-id-62 .entry-title:after{content:"
 .fullwidth-block.event-details .close-event-info:after{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}
 .fullwidth-block.event-details .close-event-info:hover{opacity:1}
 .filter-options{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#407078;margin:0 0 35px}
+.filter-options span,.filter-options div{width:100%}
+.filter-options .ftitle{text-align:center;padding-bottom:20px}
 .filter-options select{background-color:transparent;border:1px solid #407078;border-radius:0;width:100%;padding:2px 6px}
 .filter-options .facetwp-facet,.filter-options .filter-field{margin:0 0 0 15px;display:inline-block;width:150px}
 .filter-options p:empty{display:none}
