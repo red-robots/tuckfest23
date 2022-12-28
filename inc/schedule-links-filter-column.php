@@ -52,6 +52,21 @@ if ($wp_query->have_posts()) :  while ($wp_query->have_posts()) :  $wp_query->th
 			}
 		}
 
+		$dayTerms = get_the_terms($theID, 'event_day');
+		if($dayTerms){
+			foreach ($dayTerms as $derm) {
+				$day = $derm->name;
+				$altName = get_field('alt_name', $derm);
+				if( $altName == '' ) {
+					$altName = $day;
+				}
+				// if we havn't added the day into the array, add it. Let's not repeat ourselves.
+				if( !in_array($day, array_column($first, 'name') ) ) {
+					$first[] = array( 'name' => $day, 'alt' => $altName );
+				}
+			}
+		}
+
 	endwhile; 
 endif; 
 
@@ -82,18 +97,30 @@ function array_sort_by_column(&$arr, $col, $dir = SORT_ASC) {
 array_sort_by_column($second, 'name');
 ?>
 	<div class="types filter_field">
-    <div class="select">
-      <div class="select-styled">All</div>
-      <ul class="select-options">
-        <li rel=".sched-act">All</li>
-        <?php foreach ($second as $button) { 
-          $filterString = sanitize_title_with_dashes($button['name']);
-          $bName = $button['alt'];
-          ?>
-          <li rel=".<?php echo $filterString ?>"><?php echo $bName ?></li>
-        <?php } ?>
-      </ul>
-    </div>
+	    <div class="select">
+	      <div class="select-styled">All</div>
+	      <ul class="select-options">
+	        <li rel=".sched-act">All</li>
+	        <?php foreach ($second as $button) { 
+	          $filterString = sanitize_title_with_dashes($button['name']);
+	          $bName = $button['alt'];
+	          ?>
+	          <li rel=".<?php echo $filterString ?>"><?php echo $bName ?></li>
+	        <?php } ?>
+	      </ul>
+	    </div>
+	    <!-- <div class="select">
+	      <div class="select-styled">All</div>
+	      <ul class="select-options">
+	        <li rel=".sched-act">All</li>
+	        <?php foreach ($first as $button) { 
+	          $filterString = sanitize_title_with_dashes($button['name']);
+	          $bName = $button['alt'];
+	          ?>
+	          <li rel=".<?php echo $filterString ?>"><?php echo $bName ?></li>
+	        <?php } ?>
+	      </ul>
+	    </div> -->
 	</div>
 
 

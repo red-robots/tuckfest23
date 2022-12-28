@@ -54,7 +54,7 @@ if( $i == 1 ) {
 	// echo '<h2>'.$queried_object->name.'</h2>';
 }
 
-$wwAct = 'https://whitewater.org/visit/activity-passes/';
+$wwAct = 'https://center.whitewater.org/visit/activity-passes/';
 
 $thurTime = get_field('thursday_time_p');
 $thurEndTime = get_field('thursday_time_p_end');
@@ -191,7 +191,7 @@ if( $i == 1 ) {
 		</a>
 	</li>
 	<li>
-		<a href="<?php echo $wwAct; ?>">
+		<a href="<?php echo $wwAct; ?>" target="_blank">
 			<div class="title first">
 				Whitewater Center Activities
 			</div>

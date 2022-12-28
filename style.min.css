@@ -1486,7 +1486,7 @@ body.subpage #primary{min-height:30em}
 .banner-subpage .heroBtn:hover{background-color:#000}
 .banner-subpage.noimage .banner-button{position:relative;top:-5px}
 .entry-content{font-family:"Catamaran",sans-serif;font-weight:normal;word-spacing:.3em}
-.entry-content.page-content{max-width:600px;padding-top:40px;margin:0 auto}
+.entry-content.page-content{max-width:600px;padding-top:40px;margin:0 auto;padding:20px;background-color:rgba(255,255,255,0.5)}
 body.page-id-62 .entry-title:before,body.page-id-62 .entry-title:after{content:"";display:block;width:30vw;height:100%;position:absolute;top:0;background-image:none;background-position:center;background-repeat:no-repeat;background-size:cover}
 .entry-title{background:#9e8c1f;position:relative;text-align:center;border-top:5px solid #f0d6b5;border-bottom:5px solid #f0d6b5;position:relative}
 .entry-title:before,.entry-title:after{content:"";display:block;width:30vw;height:100%;position:absolute;top:0;background-image:url("assets/images/titlebg.svg");background-position:center;background-repeat:no-repeat;background-size:cover}
@@ -1732,7 +1732,7 @@ section.photo-gallery .gal-thumb a:hover figure{-webkit-box-shadow:0 0 50px rgba
 .vendors .ven{width:30%;aspect-ratio:3/2;-o-object-fit:contain;object-fit:contain;margin:10px 10px 20px 10px;-ms-flex-preferred-size:30%;flex-basis:30%}
 .vendors .ven img{width:100%;-webkit-transform:scale(1);transform:scale(1);-webkit-transition:all ease .2s;transition:all ease .2s}
 .vendors .ven img:hover{-webkit-transform:scale(1.05);transform:scale(1.05)}
-.imagecol.xtra img{max-width:100%;height:auto}
+.imagecol.xtra img{width:100%;height:auto}
 .nowrap{white-space:nowrap}
 .gform_page_footer input.button{padding:10px 25px;background-color:#9e8c1f;color:#fff}
 .gform_page_footer input.gform_button.button{padding:5px 25px}
