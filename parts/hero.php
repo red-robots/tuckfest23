@@ -20,7 +20,7 @@
       <div class="wrapper">
         <div class="flexwrap">
           <?php $i=1; foreach ($buttons as $btn) { 
-            // $color = ($btn['color']) ? $btn['color'] : '#CCC';
+            $color = ($btn['color']) ? $btn['color'] : '#CCC';
             // $image_hover = $btn['image_hover'];
             $image = $btn['image'];
             $div_id = $btn['id'];
@@ -28,16 +28,22 @@
             $pagelink = ( isset($link['url']) && $link['url'] ) ? $link['url'] : 'javascript:void(0)';
             $link_title = ( isset($link['title']) && $link['title'] ) ? $link['title'] : '';
             $target = ( isset($link['target']) && $link['target'] ) ? $link['target'] : '_self';
+            $bgcolor = ($color) ? ' style="background-color:'.$color.'"':'';
             if ( file_exists( locate_template('parts/graphic/'.$div_id.'.php') ) ) {
               if( $link_title &&  $pagelink ) {  ?>
-              <div id="<?php echo $div_id ?>" class="button graphic">
-                <a href="<?php echo $pagelink ?>" target="<?php echo $target ?>">
+              <div id="<?php echo $div_id ?>" class="button graphic <?php echo $div_id?>_svg">
+                <a href="<?php echo $pagelink ?>" target="<?php echo $target ?>" class="<?php echo $div_id?>-icon">
                   <span class="button-text"><?php echo $link_title ?></span>
                   <span class="graphic">
                     <?php include( locate_template('parts/graphic/'.$div_id.'.php') ); ?>
                   </span>
                 </a>
               </div>
+              <?php if ($color) { ?>
+              <style type="text/css">
+                @media screen and (max-width:820px) {#<?php echo $div_id ?>.button.graphic{background-color:<?php echo $color ?>}}
+              </style>  
+              <?php } ?>
             <?php } ?>
             <?php } ?>
           <?php $i++; } ?>

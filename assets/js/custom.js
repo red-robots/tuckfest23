@@ -10,23 +10,21 @@ jQuery(document).ready(function ($) {
   //   // Optional parameters
   //   direction: 'vertical',
   //   loop: true,
-
   //   // If we need pagination
   //   pagination: {
   //     el: '.swiper-pagination',
   //   },
-
   //   // Navigation arrows
   //   navigation: {
   //     nextEl: '.swiper-button-next',
   //     prevEl: '.swiper-button-prev',
   //   },
-
   //   // And if we need scrollbar
   //   scrollbar: {
   //     el: '.swiper-scrollbar',
   //   },
   // });
+
   /*
     *
     *   Mobile Nav
@@ -55,15 +53,18 @@ jQuery(document).ready(function ($) {
   $(document).on('click', '.main-navigation li', function (e) {
     var linkClasses = $(this).attr("class").split(' ');
     $("#masthead ul.submenu").removeClass('active');
+
     if ($(this).hasClass("dimmer")) {
       $('#dimmer').addClass('activate');
     }
+
     $("#masthead ul.submenu").each(function () {
       var target = $(this);
       var menu_classes = $(this).attr("class").split(' ');
       $(linkClasses).each(function (a, b) {
         if ($.inArray(b, menu_classes) != -1) {
           target.addClass('active');
+
           if ($(".subnav#js-tsn").length) {
             $(".subnav#js-tsn").hide();
           }
@@ -73,19 +74,23 @@ jQuery(document).ready(function ($) {
   });
   $(".menu-item-type-custom.menu-item-has-children > a").on("click", function (e) {
     var link = $(this).attr("href").trim().replace(/\s/g, '');
+
     if (link == '#') {
       e.preventDefault();
       var parent_id = $(this).parents(".menu-item-has-children").attr("id");
       $(this).next(".sub-menu").addClass('active');
+
       if ($("#subnavdata ul.sub-menu").length) {
         $("#subnavdata ul.sub-menu").each(function () {
           var submenu = $(this);
+
           if (submenu.hasClass("link-" + parent_id)) {
             submenu.toggleClass('animated fadeInDown active');
           } else {
             submenu.removeClass('animated fadeInDown active');
           }
         });
+
         if ($('body').has('home')) {
           $("body.home #subNavs").addClass("animated fadeInDown");
         }
@@ -109,6 +114,7 @@ jQuery(document).ready(function ($) {
       crossFade: true
     },
     effect: "fade",
+
     /*  "slide", "fade", "cube", "coverflow" or "flip" */
     pagination: {
       el: '.swiper-pagination',
@@ -120,12 +126,12 @@ jQuery(document).ready(function ($) {
       prevEl: '.swiper-button-prev'
     }
   });
-
   /*
      *
      *   Colorbox
      *
      ------------------------------------*/
+
   $('a.gallery').colorbox({
     rel: 'gal',
     width: '95%',
@@ -139,19 +145,19 @@ jQuery(document).ready(function ($) {
     inline: true,
     width: "60%"
   });
-
   /*
         FAQ dropdowns
   __________________________________________
   */
+
   $('.question').click(function () {
     $(this).next('.answer').slideToggle(500);
     $(this).toggleClass('close');
     $(this).find('.plus-minus-toggle').toggleClass('collapsed');
     $(this).parent().toggleClass('active');
   });
-
   /* POP-UP STAFF DETAILS */
+
   $('.column.post-type-music').on("click", function (e) {
     e.preventDefault();
     var target = $(this);
@@ -172,6 +178,7 @@ jQuery(document).ready(function ($) {
         if ($('.event-details').length) {
           $('.event-details').remove();
         }
+
         $(window).on('orientationchange resize', function () {
           if ($('.event-details').length) {
             $('.event-details').remove();
@@ -185,6 +192,7 @@ jQuery(document).ready(function ($) {
           } else {
             $(response.content).appendTo(parent);
           }
+
           $(window).on('orientationchange resize', function () {
             if ($(window).width() < 821) {
               $(response.content).appendTo(target);
@@ -202,11 +210,12 @@ jQuery(document).ready(function ($) {
       }
     });
   });
-
   /* ==============
        FILTER 
   ================== */
+
   /* SCHEDULE page */
+
   $('.types .select-styled').click(function () {
     $(this).next('.select-options').slideToggle();
   });
@@ -217,6 +226,7 @@ jQuery(document).ready(function ($) {
     parent.find('.select-styled').text(selected);
     parent.find('.select-options').slideUp('fast');
     /* if ALL */
+
     if (slug == 'sched-act') {
       $('.schedule ul.list li').show();
     } else {
@@ -255,29 +265,31 @@ jQuery(document).ready(function ($) {
     // }
 
     /* Check first other filters */
+
     var selectedFilters = [];
     $('.filter-custom .select-styled').each(function () {
       var selected = $(this).attr('data-selected');
+
       if (selected != 'all') {
         selectedFilters.push(selected);
       }
-    });
-
-    //let uniqueItems = (selectedFilters.length) ? unique(selectedFilters) : '';
+    }); //let uniqueItems = (selectedFilters.length) ? unique(selectedFilters) : '';
 
     var selectedList = selectedFilters.length ? '.' + selectedFilters.join('.') : '';
     $('.repeatable-content-blocks .content-block').not(selectedList).hide();
+
     if ($('.repeatable-content-blocks .content-block' + selectedList).length) {
       $('.repeatable-content-blocks .content-block').hide().removeClass('found');
       $('.repeatable-content-blocks .content-block' + selectedList).show().addClass('found');
     } else {
       $('.repeatable-content-blocks .content-block').hide().removeClass('found');
-    }
-    //checkFoundItems();
+    } //checkFoundItems();
+
   });
 
   function checkFoundItems() {
     var count = $('.repeatable-content-blocks .content-block.found').length;
+
     if (count) {
       $('h3.notfound').remove();
     } else {
@@ -286,18 +298,21 @@ jQuery(document).ready(function ($) {
       }
     }
   }
-
   /* Close Filter */
+
+
   $(document).on('click', function (e) {
     if ($(e.target).closest("div.select").length === 0) {
       $("div.select .select-options").slideUp();
     }
   });
+
   function unique(array) {
     return array.filter(function (el, index, arr) {
       return index == arr.indexOf(el);
     });
   }
+
   $('#filterStyle select').each(function () {
     //$(this).niceSelect();
     $(this).find('option').each(function () {

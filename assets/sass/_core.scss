@@ -383,27 +383,34 @@ body.home {
 .home-buttons g {
   transition: all ease .3s;
 }
+
+/* REGISTRATION SVG */
 #registration #Path_825,
 #registration #Path_826 {
   opacity: 0;
   transform: translateY(5px);
 }
-#registration a:hover #Path_825, 
-#registration a:hover #Path_826 {
-  opacity: 1;
-  transform: translateY(-4px);
+
+@include min($tabwidth + 1px) {
+  #registration a:hover #Path_825, 
+  #registration a:hover #Path_826 {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+  #registration a:hover #Path_755,
+  #registration a:hover #Path_754,
+  #registration a:hover #Path_756,
+  #registration a:hover #Path_755-2,
+  #registration a:hover #Path_757-2,
+  #registration a:hover .st0 {
+    transform: translateY(-4px);
+  }
+  #registration a:hover #Rectangle_58 {
+    transform: translateY(0);
+  }
 }
-#registration a:hover #Path_755,
-#registration a:hover #Path_754,
-#registration a:hover #Path_756,
-#registration a:hover #Path_755-2,
-#registration a:hover #Path_757-2,
-#registration a:hover .st0 {
-  transform: translateY(-4px);
-}
-#registration a:hover #Rectangle_58 {
-  transform: translateY(0);
-}
+
+/* OLD COMPETITIONS SVG */
 #competitions.button a {
   width: 112.5%;
   left: -12.5%;
@@ -433,6 +440,8 @@ body.home {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* MUSIC SVG */
 #music #Subtraction_2 {
   transform: translateY(5px);
 }
@@ -441,15 +450,141 @@ body.home {
   transform: translateY(0) scale(0,0);
   transform-origin: 50% 50%;;
 }
-#music a:hover #Layer_3 {
-  opacity: 1;
-  transform: translateY(-10px) scale(1, 1);
-}
-#music a:hover #Subtraction_2,
-#music a:hover #Intersection_2 {
-  transform: translateY(-5px);
+
+@include min($tabwidth + 1px) {
+  #music a:hover #Layer_3 {
+    opacity: 1;
+    transform: translateY(-10px) scale(1, 1);
+  }
+  #music a:hover #Subtraction_2,
+  #music a:hover #Intersection_2 {
+    transform: translateY(-5px);
+  }
 }
 
+/* NEW COMPETITIONS SVG */
+#competitions.competitions_svg.button {
+  a {
+    width: 100%;
+    left: unset;
+  
+    #CompLayer_5 {
+      display: none;
+      width: 0;
+      opacity: 0;
+      transform: translateX(1vw);
+    }
+
+    #CompLayer_6 {
+      transition: all ease .3s;
+    }
+
+    /* pup bicyling */
+    @include min($tabwidth + 1px) {
+      &:hover {
+        #CompLayer_9, #CompLayer_7 {
+          transform: translateX(24%);
+        }
+        #CompLayer_5 {
+          display: block;
+          width: auto;
+          opacity: 1;
+          transition-delay: .1s;
+          transform: translateX(0);
+        }
+        #CompLayer_6 {
+          transform: translateY(148px) rotate(-43deg);
+        }
+      }
+    }
+  }
+}
+
+
+@include max($tabwidth) {
+  .home .home-buttons .button {
+    position: relative;
+    width: 100%;
+    float: left;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,0.2) inset;
+    a {
+      position: relative;
+      width: 100%;
+      float: left;
+      text-decoration: none;
+
+      .button-text {
+        width: 100%;
+        position: relative;
+        bottom: unset;
+        left: unset;
+        padding: 18px 0 18px 75px;
+        text-decoration: none;
+        font-size: 35px;
+      }
+
+      span.graphic {
+        display: block;
+        width: 85px;
+        position: absolute;
+        top: 48%;
+        left: 20px;
+        transform: translateY(-48%);
+        svg {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      &.registration-icon {
+        span.graphic {
+          width: 75px;
+          transform: translateY(-28%);
+        }
+        #Layer_3, #Layer_2 {
+          display: none!important;
+        }
+        .st0, .st3 {
+          fill: $bgcolor!important;
+        }
+      }
+
+      &.competitions-icon {
+        span.graphic {
+          width: 88px;
+          top: 60%;
+        }
+        #CompLayer_2 {
+          display: none;
+        }
+        .compst0 {
+          fill: $bgcolor!important;
+        }
+        #Layer_2 {
+          display: none!important;
+        }
+      }
+
+      &.music-icon {
+        span.graphic {
+          top: 65%;
+        }
+        #Layer_3, #Layer_1, #Rectangle_52 {
+          display: none!important;
+        }
+        #Subtraction_2.mzst0 {
+          fill: $bgcolor!important;
+        }
+      }
+
+    }
+    
+    
+  }
+}
 
 /* MOBILE MENU */
 .mobile-menu {
