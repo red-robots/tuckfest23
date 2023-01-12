@@ -429,8 +429,6 @@ $('.question').click(function() {
   }
 
 
-
-
   $('#filterStyle select').each(function(){
     //$(this).niceSelect();
     $(this).find('option').each(function(){
