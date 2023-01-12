@@ -166,11 +166,11 @@ if( $postType == 'music' ) {
 	// $url = get_bloginfo('url').'/'.$taxSlug.'/'.$term.'/#'.$hash;
 } 
 
-
+$daySlug = (isset($day) && $day) ? ' '.$day : '';
 if( $i == 1 ) {
 
 ?>
-	<li class="item ">
+	<li class="item<?php echo $daySlug ?>">
 		<a href="<?php echo $regLink; ?>">
 			<?php if( $pp ){ ?>
 				<div class="title first ">
@@ -202,7 +202,7 @@ if( $i == 1 ) {
 	</li>
 <?php } ?>
 
-<li class="item <?php echo $classes; ?> sched-act">
+<li class="item <?php echo $classes; ?> sched-act<?php echo $daySlug ?>">
 	<a href="<?php echo $url; ?>">
 	<?php if( get_post_type() == 'music' ) { ?>
 		<div class="musicnote">

@@ -187,29 +187,37 @@ $('.question').click(function() {
             $('.event-details').remove();
           }
         });
+        $('body').removeClass('closed-event-details');
       },
       success:function(response) {
         if(response.content) {
 
           if( $(window).width() < 821 ) {
-            $(response.content).appendTo(target);
+            //$(response.content).appendTo(target);
+            $(response.content).insertAfter(target);
           } else {
             $(response.content).appendTo(parent);
           }
 
           $(window).on('orientationchange resize',function(){
             if( $(window).width() < 821 ) {
-              $(response.content).appendTo(target);
+              $(response.content).insertAfter(target);
             } else {
-              $(response.content).appendTo(parent);
+              if( $('body').hasClass('closed-event-details') ){
+                //do nothing...
+              } else {
+                $(response.content).appendTo(parent);
+              }
             }
           });
+
         }
       },
       complete:function(){
-        $('.close-event-info').on('click',function(){
+        $(document).on('click','.close-event-info',function(){
           $('#event-details').remove();
-          target.removeClass('active');
+          $('body').addClass('closed-event-details');
+          $('.column.post-type-music').removeClass('active');
         });
       }
     });
@@ -217,32 +225,134 @@ $('.question').click(function() {
   });
 
 
-  /* ==============
+  /* ==================
        FILTER 
-  ================== */
+  ===================== */
   /* SCHEDULE page */
-  $('.types .select-styled').click(function() {
+  // $('.types .select-styled').click(function() {
+  //   $(this).next('.select-options').slideToggle();
+  // });
+
+  // $(document).on('click','.types .select-options li',function(){
+  //   var parent = $(this).parents('div.select');
+  //   var slug = $(this).attr('rel').replace('.','');
+  //   var selected = $(this).text().trim();
+  //   parent.find('.select-styled').text(selected);
+  //   parent.find('.select-options').slideUp('fast');
+  //   /* if ALL */
+  //   if(slug=='sched-act') {
+  //     $('.schedule ul.list li').show();
+  //   } else {
+  //     $('.schedule ul.list li').each(function(){
+  //       if( $(this).hasClass(slug) ) {
+  //         $(this).show();
+  //       } else {
+  //         $(this).hide();
+  //       }
+  //     });
+  //   }
+  // });
+
+  // $('.types .select-styled').click(function() {
+  //   $(this).next('.select-options').slideToggle();
+  // });
+
+  $('.filter-action .select-styled').click(function() {
     $(this).next('.select-options').slideToggle();
   });
-  $(document).on('click','.types .select-options li',function(){
-    var parent = $(this).parents('div.select');
-    var slug = $(this).attr('rel').replace('.','');
-    var selected = $(this).text().trim();
-    parent.find('.select-styled').text(selected);
-    parent.find('.select-options').slideUp('fast');
-    /* if ALL */
-    if(slug=='sched-act') {
-      $('.schedule ul.list li').show();
-    } else {
-      $('.schedule ul.list li').each(function(){
-        if( $(this).hasClass(slug) ) {
-          $(this).show();
+
+  $(document).on('click','.filter-action .select-options li',function(){
+      var fieldWrap = $(this).parents('.filter-action');
+      var parent = $(this).parents('div.select');
+      var slug = $(this).attr('rel').replace('.','');
+      var selected = $(this).text().trim();
+      parent.find('.select-styled').attr('data-slug',slug);
+      parent.find('.select-styled').text(selected);
+      $('.select-options').slideUp('fast');
+
+      /* FILTER BY DAY */
+      /* Check if type is selected */
+      var selectedType = $('#f_type').attr('data-slug');
+      var selectedDay = $('#f_day').attr('data-slug');
+
+      if( $(this).hasClass('filter-day') ) {
+        
+        if(slug=='all-items') {
+          if(selectedType=='sched-act') {
+            $('.schedule ul.list li').show().removeClass('hide');
+          } else {
+            $('.schedule ul.list li').each(function(){
+              if( $(this).hasClass(selectedType) ) {
+                $(this).show().removeClass('hide');
+              } else {
+                $(this).hide().addClass('hide');
+              }
+            });
+          }
         } else {
-          $(this).hide();
+          $('.schedule ul.list li').each(function(){
+            if( $(this).hasClass(selectedType) &&  $(this).hasClass(slug) ) {
+              $(this).show().removeClass('hide');
+            } else {
+              $(this).hide().addClass('hide');
+            }
+          });
         }
-      });
-    }
+
+      } else {
+
+        /* FILTER BY TYPE */
+        if(selectedDay=='all-items') {
+          if(slug=='sched-act') {
+            $('.schedule ul.list li').show().removeClass('hide');
+          } else {
+            $('.schedule ul.list li').each(function(){
+              if( $(this).hasClass(slug) ) {
+                $(this).show().removeClass('hide');
+              } else {
+                $(this).hide().addClass('hide');
+              }
+            });
+          }
+        } else {
+
+          $('.schedule ul.list li').each(function(){
+            if( $(this).hasClass(selectedDay) &&  $(this).hasClass(slug) ) {
+              $(this).show().removeClass('hide');
+            } else {
+              $(this).hide().addClass('hide');
+            }
+          });
+
+        }
+
+      }
+
+      //lookUpHiddenScheduleList();
+
   });
+
+
+  /* Check which schedule day that has no list, then add class to that box */
+  // function lookUpHiddenScheduleList() {
+  //   let list = $('.schedule ul.list').length;
+  //   var all = $('.js-day').length;
+  //   $('.js-day').each(function(){
+  //     var countList = $(this).find('ul.list li').length;
+  //     var countHidden = $(this).find('ul.list li.hide').length;
+  //     if(countList==countHidden) {
+  //       $(this).addClass('noList');
+  //     } else {
+  //       $(this).removeClass('noList');
+  //     }
+  //   });
+  //   var countAllHidden = $('.js-day.noList').length;
+  //   if(countAllHidden==all) {
+  //     if( $('#f_day').attr('data-slug')!='all-items' ) {
+  //       $('.js-day').removeClass('noList');
+  //     }
+  //   }
+  // }
 
 
   $('.filter-custom .select-styled').click(function() {
@@ -324,7 +434,7 @@ $('.question').click(function() {
   $('#filterStyle select').each(function(){
     //$(this).niceSelect();
     $(this).find('option').each(function(){
-      console.log( this.value );
+      //console.log( this.value );
     });
   });
 

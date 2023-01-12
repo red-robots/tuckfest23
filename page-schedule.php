@@ -27,112 +27,50 @@ $soon = ( isset($comingSoon[0]) ) ? $comingSoon[0] : '';
 			<?php  //include( locate_template( 'inc/schedule-links-filter.php', false, false ) );  ?>
 			<?php include( locate_template( 'inc/schedule-links-filter-column.php', false, false ) ); ?>
 
-
+      <?php 
+      /* SET DAYS HERE */
+      $days = array('friday','saturday','sunday'); 
+      $columnCount = count($days);
+      ?>
       <div class="wrapper">
-        <div id="grido" class="schedule">
-        	
-        	<div class="col js-day friday alldays" id="friday">
-        		<h2>Friday</h2>
-        		<div class="col-wrap">
-        			<!-- <div class="offset"></div> -->
-        			<div class="contents">
-                <ul class="list">
-                  <?php
-                  $i=0; 
-                  $wp_query = new WP_Query();
-                  $wp_query->query(array(
-                  'post_type'=> array('yoga','demo_clinic', 'competition','music'),
-                  'posts_per_page' => -1,
-                  'meta_key'			=> 'friday_time_p',
-                  'orderby'			=> 'meta_value',
-                  'order'				=> 'ASC',
-                  'meta_type'         => 'TIME',
-                  'post_status' => array( 'publish', 'private' ),
-                  'tax_query' => array(
-                  	array(
-                  		'taxonomy' => 'event_day', // your custom taxonomy
-                  		'field' => 'slug',
-                  		'terms' => array( 'friday' ) // the terms (categories) you created
-                  	)
+        <div id="grido" class="schedule numcols<?php echo $columnCount ?>">
+          <?php foreach ($days as $day) { ?>
+            <div class="col js-day alldays <?php echo $day ?>" id="<?php echo $day ?>">
+              <h2><?php echo ucwords($day) ?></h2>
+              <?php  
+              $i=0; 
+              $wp_query = new WP_Query();
+                $wp_query->query(array(
+                'post_type'=> array('yoga','demo_clinic', 'competition','music'),
+                'posts_per_page' => -1,
+                'meta_key'      => $day.'_time_p',
+                'orderby'     => 'meta_value',
+                'order'       => 'ASC',
+                'meta_type'         => 'TIME',
+                'post_status' => array( 'publish', 'private' ),
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'event_day', // your custom taxonomy
+                    'field' => 'slug',
+                    'terms' => array( $day ) // the terms (categories) you created
                   )
-                  ));
-                  if ($wp_query->have_posts()) :  while ($wp_query->have_posts()) :  $wp_query->the_post(); 
-                    include( locate_template( 'inc/schedule-links.php', false, false ) );  
-                  endwhile; ?>
-                  <?php endif; ?>
-                </ul>
-        		</div>
-        		</div>
-        	</div>
-        	<div class="col js-day saturday alldays" id="saturday">
-        		<h2>Saturday</h2>
-        		<div class="col-wrap">
-        			<!-- <div class="offset"></div> -->
-        			<div class="contents">
-                <ul class="list">
-            		  <?php
-            		  $i=0; 
-                	$wp_query = new WP_Query();
-                	$wp_query->query(array(
-                		'post_type'=> array('yoga','demo_clinic', 'competition','music'),
-                		'posts_per_page' => -1,
-                		'meta_key'			=> 'saturday_time_p',
-                		'orderby'			=> 'meta_value',
-                		'order'				=> 'ASC',
-                		'meta_type'         => 'TIME',
-                		'post_status' => array( 'publish', 'private' ),
-                		'tax_query' => array(
-                			array(
-                				'taxonomy' => 'event_day', // your custom taxonomy
-                				'field' => 'slug',
-                				'terms' => array( 'saturday' ) // the terms (categories) you created
-                			)
-                		)
-                	));
-            	     if ($wp_query->have_posts()) :  while ($wp_query->have_posts()) :  $wp_query->the_post(); 
-            		    include( locate_template( 'inc/schedule-links.php', false, false ) ); 
-            			 endwhile; ?>
-            		  <?php endif; ?>
-                </ul>
-        		</div>
-        		</div>
-        	</div>
-        	<div class="col js-day sunday alldays" id="sunday">
-        		<h2>Sunday</h2>
-        		<div class="col-wrap">
-        			<!-- <div class="offset"></div> -->
-        			<div class="contents">
-                <ul class="list">
-              		<?php
-                  $i=0; 
-                  $wp_query = new WP_Query();
-                  $wp_query->query(array(
-                  'post_type'=> array('yoga','demo_clinic', 'competition','music'),
-                  'posts_per_page' => -1,
-                  'meta_key'			=> 'sunday_time_p',
-                  'orderby'			=> 'meta_value',
-                  'order'				=> 'ASC',
-                  'meta_type'         => 'TIME',
-                  'post_status' => array( 'publish', 'private' ),
-                  'tax_query' => array(
-                  	array(
-                  		'taxonomy' => 'event_day', // your custom taxonomy
-                  		'field' => 'slug',
-                  		'terms' => array( 'sunday' ) // the terms (categories) you created
-                  	)
-                  )
-                  ));
-                  if ($wp_query->have_posts()) :  while ($wp_query->have_posts()) :  $wp_query->the_post(); 
+                )
+              )); 
+              if ($wp_query->have_posts()) { ?>
+              <div class="col-wrap">
+                <div class="contents">
+                  <ul class="list">
+                    <?php while ($wp_query->have_posts()) : $wp_query->the_post();  
+                      include( locate_template( 'inc/schedule-links.php', false, false ) );  
+                    endwhile;  ?>
+                  </ul>
+                </div>
+              </div>
+              <?php } ?>
+            </div>
+          <?php } ?>
 
-                  include( locate_template( 'inc/schedule-links.php', false, false ) ); 
 
-                  	 endwhile; ?>
-                  <?php endif; ?>
-                  <?php $wp_query->wp_reset_postdata(); ?>
-                </ul>
-        		</div>
-        		</div>
-        	</div>
         </div>
       </div>
 

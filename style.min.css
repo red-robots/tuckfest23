@@ -1800,9 +1800,10 @@ section.photo-gallery .gal-thumb{width:20%}
 nav.mobilemenu{display:none}
 section.faqs{max-width:700px;margin:0 auto;padding:40px 0}
 }@media(min-width:1200px){.home-buttons .button a .button-text{bottom:3vw}
-}@media screen and (max-width:820px){.home .home-buttons .button{position:relative;width:100%;float:left;margin:10px 0;border-radius:8px;-webkit-box-shadow:0 0 1px 1px rgba(0,0,0,.2) inset;box-shadow:0 0 1px 1px rgba(0,0,0,.2) inset}
+}@media screen and (max-width:820px){.js-day.noList{display:none}
+.home .home-buttons .button{position:relative;width:100%;float:left;margin:10px 0;border-radius:8px;-webkit-box-shadow:0 0 1px 1px rgba(0,0,0,.2) inset;box-shadow:0 0 1px 1px rgba(0,0,0,.2) inset}
 .home .home-buttons .button a{position:relative;width:100%;float:left;text-decoration:none}
-.home .home-buttons .button a .button-text{width:100%;position:relative;bottom:unset;left:unset;padding:18px 0 18px 75px;text-decoration:none;font-size:35px}
+.home .home-buttons .button a .button-text{width:100%;position:relative;bottom:unset;left:unset;padding:18px 0 18px 75px;text-decoration:none;font-size:30px}
 .home .home-buttons .button a span.graphic{display:block;width:85px;position:absolute;top:48%;left:20px;-webkit-transform:translateY(-48%);transform:translateY(-48%)}
 .home .home-buttons .button a span.graphic svg{display:block;width:100%;height:auto}
 .home .home-buttons .button a.registration-icon span.graphic{width:75px;-webkit-transform:translateY(-28%);transform:translateY(-28%)}
@@ -1815,6 +1816,7 @@ section.faqs{max-width:700px;margin:0 auto;padding:40px 0}
 .home .home-buttons .button a.music-icon span.graphic{top:65%}
 .home .home-buttons .button a.music-icon #Layer_3,.home .home-buttons .button a.music-icon #Layer_1,.home .home-buttons .button a.music-icon #Rectangle_52{display:none !important}
 .home .home-buttons .button a.music-icon #Subtraction_2.mzst0{fill:#f0d6b5 !important}
+.entry-title:before,.entry-title:after{opacity:.25}
 }@media only screen and (max-width:820px){#subNavs{display:none}
 }@media(print),(prefers-reduced-motion:reduce){.animated{-webkit-animation-duration:1ms !important;animation-duration:1ms !important;-webkit-transition-duration:1ms !important;transition-duration:1ms !important;-webkit-animation-iteration-count:1 !important;animation-iteration-count:1 !important}
 }@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}

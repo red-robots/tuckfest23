@@ -60,10 +60,20 @@ if ($wp_query->have_posts()) :  while ($wp_query->have_posts()) :  $wp_query->th
 				if( $altName == '' ) {
 					$altName = $day;
 				}
-				// if we havn't added the day into the array, add it. Let's not repeat ourselves.
-				if( !in_array($day, array_column($first, 'name') ) ) {
-					$first[] = array( 'name' => $day, 'alt' => $altName );
-				}
+				
+
+        /* This returns PHP errors if the variable $first is null  => To fix the issue, add this condition if( isset($first) && $first ) */
+        // if( !in_array($day, array_column($first, 'name') ) ) {
+        //   $first[] = array( 'name' => $day, 'alt' => $altName );
+        // }
+
+        //if we haven't added the day into the array, add it. Let's not repeat ourselves.
+        if( isset($first) && $first ) { 
+          if( !in_array($day, array_column($first, 'name') ) ) {
+            $first[] = array( 'name' => $day, 'alt' => $altName );
+          }
+        }
+
 			}
 		}
 
@@ -96,11 +106,11 @@ function array_sort_by_column(&$arr, $col, $dir = SORT_ASC) {
 
 array_sort_by_column($second, 'name');
 ?>
-	<div class="types filter_field">
+	<div class="types filter-action filter_field">
 	    <div class="select">
-	      <div class="select-styled">All</div>
+	      <div id="f_type" data-slug="sched-act" class="select-styled">Type</div>
 	      <ul class="select-options">
-	        <li rel=".sched-act">All</li>
+	        <li rel=".sched-act">All Types</li>
 	        <?php foreach ($second as $button) { 
 	          $filterString = sanitize_title_with_dashes($button['name']);
 	          $bName = $button['alt'];
@@ -113,16 +123,31 @@ array_sort_by_column($second, 'name');
 	      <div class="select-styled">All</div>
 	      <ul class="select-options">
 	        <li rel=".sched-act">All</li>
-	        <?php foreach ($first as $button) { 
-	          $filterString = sanitize_title_with_dashes($button['name']);
-	          $bName = $button['alt'];
+	        <?php //foreach ($first as $button) { 
+	          //$filterString = sanitize_title_with_dashes($button['name']);
+	          //$bName = $button['alt'];
 	          ?>
-	          <li rel=".<?php echo $filterString ?>"><?php echo $bName ?></li>
-	        <?php } ?>
+	          <li rel=".<?php //echo $filterString ?>"><?php //echo $bName ?></li>
+	        <?php //} ?>
 	      </ul>
 	    </div> -->
 	</div>
 
+  <?php /* FILTER BY DAY */ ?>
+  <?php $daysList = array('Friday','Saturday','Sunday'); ?>
+  <div class="filter-by-days filter-action filter_field">
+      <div class="select">
+        <div id="f_day" data-slug="all-items" class="select-styled">Day</div>
+        <ul class="select-options">
+          <li class="filter-day" rel=".all-items">All Days</li>
+          <?php foreach ($daysList as $day) { 
+            $day_slug = sanitize_title_with_dashes($day);
+            ?>
+            <li class="filter-day" rel=".<?php echo $day_slug ?>"><?php echo $day ?></li>
+          <?php } ?>
+        </ul>
+      </div>
+  </div>
 
 </div>
 <!-- SELECT -->
