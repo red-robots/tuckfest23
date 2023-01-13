@@ -276,6 +276,17 @@ body.home {
       width: 100%;
       height: auto;
       float: left;
+      // &.mobile {
+      //   @media only screen and (min-width: $tabwidth) {
+      //     display: none;
+      //   }
+      // }
+      // &.desktop {
+      //   display: none;
+      //   @media only screen and (min-width: $tabwidth) {
+      //     display: block;
+      //   }
+      // }
     }
   }
 }
@@ -625,7 +636,8 @@ body.subpage {
     background-size: cover;
     background-position: top left;
     background-repeat: no-repeat;
-    width: 275px;
+    // width: 275px;
+    width: 190px;
     height: 60px;
     text-decoration: none;
     span {
@@ -656,6 +668,17 @@ body.subpage {
     height: 50vh;
     @include backgroundImage(center);
     background-color: $secondary;
+    &.mobile {
+      @media only screen and (min-width: $tabwidth) {
+        display: none;
+      }
+    }
+    &.desktop {
+      display: none;
+      @media only screen and (min-width: $tabwidth) {
+        display: block;
+      }
+    }
   }
   img.helper {
     width: 100%;
@@ -785,7 +808,104 @@ body.page-id-62 {
     z-index: 10;
   }
 }
-
+body {
+  &.past-line-ups, &.artists {
+    header.entry-title {
+      background-color: #EA8C23;
+      &:before, &:after {
+        background-image: url('assets/images/titlebg-artists.jpg');
+      }
+    }
+  }
+  &.yoga {
+    header.entry-title {
+      background-color: #9E8C1F;
+      &:before, &:after {
+        background-image: url('assets/images/titlebg-yoga.jpg');
+      }
+    }
+  }
+  &.term-bike {
+    header.entry-title {
+      // background-color: #EA8C23;
+      &:before, &:after {
+        background-image: url('assets/images/titlebg-bike.jpg');
+      }
+    }
+  }
+  &.term-deep-water-solo {
+    header.entry-title {
+      background-color: #407078;
+      &:before, &:after {
+        background-image: url('assets/images/titlebg-dws.jpg');
+      }
+    }
+  }
+  &.page-template-page-schedule {
+    header.entry-title {
+      background-color: #407078;
+      &:before, &:after {
+        background-image: url('assets/images/titlebg-schedule.jpg');
+      }
+      &:after {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+      }
+    }
+  }
+  &.term-swim, &.swim-the-ford {
+    header.entry-title {
+      background-color: #407078;
+      &:before, &:after {
+        background-image: url('assets/images/titlebg-swim.jpg');
+      }
+    }
+  }
+  &.term-sup, &.half-dozen-sup-race, &.flatwater-sup-race, &.paddle-royale, &.last-one-standing-up, &.sup-cross {
+    header.entry-title {
+      background-color: #407078;
+      &:before, &:after {
+        background-image: url('assets/images/titlebg-sup.jpg');
+      }
+    }
+  }
+  &.faqs {
+    header.entry-title {
+      background-color: #407078;
+      &:before, &:after {
+        background-image: url('assets/images/titlebg-faq.jpg');
+      }
+    }
+  }
+  &.food-and-beverage {
+    header.entry-title {
+      background-color: #EA8C23;
+      &:before, &:after {
+        background-image: url('assets/images/titlebg-fnb.jpg');
+      }
+    }
+  }
+  &.tuck-fest-insiders-guide {
+    header.entry-title {
+      background-color: #407078;
+      &:before, &:after {
+        background-image: url('assets/images/titlebg-insider.jpg');
+      }
+      &:after {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+      }
+    }
+  }
+}
 .default-template {
   width: 100%;
   float: left;

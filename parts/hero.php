@@ -1,5 +1,6 @@
 <?php if( is_front_page() || is_home() ) { 
   $home_banner = get_field('home_banner');
+  
   $buttons = get_field('home_buttons');
   ?>
   <?php if( $home_banner || $buttons ) { ?>
@@ -9,7 +10,8 @@
     <div class="home-banner">
       <div class="wrapper">
         <figure>
-          <img src="<?php echo $home_banner['url'] ?>" alt="<?php echo $home_banner['title'] ?>">
+          <img class="desktop" src="<?php echo $home_banner['url'] ?>" alt="<?php echo $home_banner['title'] ?>">
+          <!-- <img class="mobile" src="<?php echo $home_banner_mobile['url'] ?>" alt="<?php echo $home_banner_mobile['title'] ?>"> -->
         </figure>
       </div>
     </div>

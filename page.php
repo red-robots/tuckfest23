@@ -17,7 +17,7 @@ $comingSoon = get_field('coming_soon');
 $soon = ( isset($comingSoon[0]) ) ? $comingSoon[0] : '';
 if($soon !== 'soon') :
 ?>
-<header class="entry-title">
+<header class="entry-title ">
   <h1><?php the_title(); ?></h1>
 </header>
 <?php get_template_part('parts/hero-subpage'); ?>

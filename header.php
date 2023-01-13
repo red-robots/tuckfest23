@@ -56,7 +56,7 @@ $brandStyle = ($brand_image) ? ' style="background-image:url('.$brand_image['url
       <div class="flexwrap">
 
         <?php if ( !is_front_page() && !is_home() ) { ?>
-        <a href="<?php echo get_site_url() ?>" class="site-logo"<?php echo $brandStyle ?>>
+        <a href="<?php echo get_site_url() ?>" class="site-logo"<?php //echo $brandStyle ?>>
           <span><?php echo $brand_name ?></span>
         </a>  
         <?php } ?>

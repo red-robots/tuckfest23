@@ -21,7 +21,19 @@ define('THEMEURI',get_template_directory_uri());
 
 add_image_size('tile', 350, 350, array('center', 'center'));
 
+// function pageSlug()
+
 function bellaworks_body_classes( $classes ) {
+
+    if( !is_page('schedule') ) {
+      $pTitle = sanitize_title_with_dashes( get_the_title() );
+      $classes[] = $pTitle;
+    }
+
+    if( is_page('2023-artists') ) {
+      $classes[] = 'artists';
+     }
+
     // Adds a class of group-blog to blogs with more than 1 published author.
     if ( is_multi_author() ) {
         $classes[] = 'group-blog';
