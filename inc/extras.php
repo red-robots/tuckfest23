@@ -224,8 +224,8 @@ function parse_external_url( $url = '', $internal_class = 'internal-link', $exte
 /* Options page under custom post type */
 if( function_exists('acf_add_options_page') ) {
     acf_add_options_sub_page(array(
-        'page_title'    => 'Combine Competitions',
-        'menu_title'    => 'Combine Competitions',
+        'page_title'    => 'Competitions Options',
+        'menu_title'    => 'Competitions Options',
         'position'      => 4,
         'parent_slug'   => 'edit.php?post_type=competition'
     ));

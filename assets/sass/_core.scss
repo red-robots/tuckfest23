@@ -1101,7 +1101,7 @@ body.page-id-62 {
       &.btn-green {
         background: $darkgreen;
         &:hover {
-          background: #058d6d;
+          background: $button_hover
         }
       }
     }
@@ -1542,6 +1542,34 @@ span.gray, span.red, span.orange {
   }
 }
 
+.bottom-dws-blurb {
+  margin-bottom: 40px;
+  font-size: 14px;
+  line-height: 1.3;
+  text-align: left;
+  .wrapper {
+    max-width: 1300px;
+  }
+  a.ctaBtn {
+    display: inline-block;
+    text-decoration: none;
+    background: $darkgreen;
+    color: #FFF;
+    text-transform: uppercase;
+    padding: 10px 20px 8px;
+    margin: 10px 10px;
+    &:hover {
+      background: $button_hover
+    }
+  }
+  a.ctaBtn:first-child {
+    margin-left: 0;
+  }
+}
+
+.repeatable-content-blocks.dws {
+  margin-bottom: 40px;
+}
 
 /* FOOTER */
 .site-footer {

@@ -26,7 +26,7 @@ if($soon !== 'soon') :?>
 		<?php 
 		$n=1;
 		if ( have_posts() ) { ?>
-		<div class="repeatable-content-blocks">
+		<div class="repeatable-content-blocks dws">
 
 		  
 
@@ -203,10 +203,37 @@ if($soon !== 'soon') :?>
 		<?php } ?>
 
 
+        <?php  
+        $dws_blurb = get_field('dws_blurb','option');
+        $bottom = get_field('dws_competition_bottom','option');
+        $bottomText = (isset($bottom['title']) && $bottom['title']) ? $bottom['title'] : '';
+        $bottomURL = (isset($bottom['url']) && $bottom['url']) ? $bottom['url'] : '';
+        $bottomTarget = (isset($bottom['target']) && $bottom['target']) ? $bottom['target'] : '_self';
+        ?>
+
+        <?php if ($dws_blurb || ($bottomText && $bottomURL) ) { ?>
+        <div class="bottom-dws-blurb">
+          <div class="wrapper">
+
+            <?php if ($dws_blurb) { ?>
+            <div class="blurb"><?php echo $dws_blurb ?></div> 
+            <?php } ?>
+        
+            <?php if ($bottomText && $bottomURL) { ?>
+              <div class="buttondiv">
+                <a href="<?php echo $bottomURL ?>" target="<?php echo $bottomTarget ?>" class="ctaBtn btn-green"><?php echo $bottomText ?></a>
+              </div>
+            <?php } ?>
+            
+          </div>
+        </div>  
+        <?php } ?>
 
 
         </div>
       </section>
+
+      
 	</main>
 </div>
 <?php
