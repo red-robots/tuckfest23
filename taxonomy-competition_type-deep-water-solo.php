@@ -62,12 +62,7 @@ if($soon !== 'soon') :?>
 		      $imageStyle = ($featImage) ? ' style="background-image:url('.$featImage[0].')"':'';
 		      $postType = get_post_type($post_id);
 		      $div3rdcol = 'post-type-'.$postType;
-		      //$div3rdcol .= ( ($i % 3==0) || ($i==$current_count) ) ? ' third':'';
-		      //$div3rdcol .= ($i==$current_count) ? ' last':'';
 		      $pagelink = ($postType=='music') ? 'Event.preventDefault()' : get_permalink();
-		      // echo '<pre>';
-		      // print_r($imageStyle);
-		      // echo '</pre>';
 		      $title = get_the_title();
           $text = get_the_content();
           $buttons = get_sub_field('buttons');
