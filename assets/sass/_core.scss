@@ -797,9 +797,10 @@ body.page-id-62 {
     padding: 50px 0 400px 0;
   }
   .columns {
-    margin-left: -10px;
-    margin-right: -10px;
+    // margin-left: -10px;
+    // margin-right: -10px;
     @include flexgroup();
+    //justify-content: center;
   }
   .column {
     width: 100%;
@@ -834,7 +835,8 @@ body.page-id-62 {
   }
   .parent-wrap {
     width: 100%;
-    margin-left: -10px;
+    // margin-left: -10px;
+    margin-left: 0;
     margin-right: -10px;
     @include flexgroup();
   }
@@ -1074,6 +1076,16 @@ body.page-id-62 {
       margin-left: -10px;
       a {
         text-decoration: none;
+      }
+      .btngroup {
+        width: 100%;
+        float: left;
+        margin: 5px 0;
+        a {
+          display: block;
+          margin: 0 0;
+          text-transform: uppercase;
+        }
       }
     }
     .btn2 {

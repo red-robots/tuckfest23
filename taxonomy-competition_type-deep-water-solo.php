@@ -32,6 +32,28 @@ if($soon !== 'soon') :?>
 
 		  <div class="wrapper">
 		    <?php 
+          $mergedEntries = array();
+          $mergedIds = array();
+          if( $merge_items = get_field('merge_competitions','option') ) {
+            foreach($merge_items as $m) {
+              if($postids = $m['posts']) {
+                if( count($postids)>1 ) {
+                  foreach($postids as $id) {
+                    $mergedIds[] = $id;
+                  }
+
+                  $parent_id = $postids[0];
+                  $mergedEntries[$parent_id] = array(
+                    'custom_title'=>$m['custom_title'],
+                    'parent_id'=>$parent_id,
+                    'posts'=>$postids
+                  );
+                }
+              }
+            }
+          }
+
+
 		      $current_count = count( get_posts($args) );
 		      $i=1; while ( have_posts() ) : the_post(); 
 		      $post_id = get_the_ID();
@@ -47,64 +69,135 @@ if($soon !== 'soon') :?>
 		      // print_r($imageStyle);
 		      // echo '</pre>';
 		      $title = get_the_title();
-	          $text = get_the_content();
-	          $buttons = get_sub_field('buttons');
-	          $image = get_sub_field('image');
-	          $column_class = ( ($title || $text) &&  $featImage ) ? 'half':'full';
-	          if( ($title || $text) ||  $featImage ) { ?>
-	          <div class="content-block <?php echo $column_class ?>">
-	            <?php if ( $title || $text ) { ?>
-	            <div class="textcol block">
-	              <div class="inside">
-	                <?php if ($title) { ?>
-	                 <h2 class="rb_title"><span><b><?php echo $title ?></b></span></h2> 
-	                <?php } ?>
+          $text = get_the_content();
+          $buttons = get_sub_field('buttons');
+          $image = get_sub_field('image');
+          $column_class = ( ($title || $text) &&  $featImage ) ? 'half':'full';
 
-	                <?php if ($text) { ?>
-	                 <div class="rb_content"><?php echo anti_email_spam($text); ?></div> 
-	                <?php } ?>
+          if( $mergedIds ) {
+            if( array_key_exists($post_id, $mergedEntries) ) {
+                $data = $mergedEntries[$post_id]; 
+                $custom_title = ($data['custom_title']) ? $data['custom_title'] : $title;
+                $children = $data['posts'];
+              ?>
 
-	                <?php //if ($buttons) { ?>
-	                 <div class="rb_buttons">
-	                   <?php //foreach ($buttons as $btn) { 
-	                    // $b = $btn['button'];
-	                    // $btn_target = ( isset($b['target']) && $b['target'] ) ? $b['target'] : '_self';
-	                    // $btn_text = ( isset($b['title']) && $b['title'] ) ? $b['title'] : '';
-	                    // $btn_link = ( isset($b['url']) && $b['url'] ) ? $b['url'] : '';
-	                    //if( $btn_text && $btn_link ) { ?>
-	                      <a href="<?php bloginfo('url'); ?>/competitions"  class="btn2 btn-green">SEE ALL COMPETITIONS</a>
-	                    <?php //} ?>
-	                   <?php //} ?>
-	                 </div> 
-	                <?php //} ?>
-	              </div>
-	            </div> 
-	            <?php } ?>
+              <?php if( ($custom_title || $text) ||  $featImage ) { ?>
+                <div data-pid="<?php echo $post_id ?>" class="content-block merged <?php echo $column_class ?>">
+                  <?php if ( $title || $text ) { ?>
+                  <div class="textcol block">
+                    <div class="inside">
+                      <?php if ($custom_title) { ?>
+                       <h2 class="rb_title"><span><b><?php echo $custom_title ?></b></span></h2> 
+                      <?php } ?>
 
-	            <?php if ( $featImage ) { ?>
-	            <div class="imagecol block">
+                      <?php if ($text) { ?>
+                       <div class="rb_content"><?php echo anti_email_spam($text); ?></div> 
+                      <?php } ?>
+
+                      <?php if ($children) { ?>
+                       <div class="rb_buttons">
+                        <?php foreach ($children as $id) { 
+                          $buttonText = get_the_title($id);
+                          ?>
+                          <div class="btngroup">
+                            <a href="<?php echo get_permalink($id)?>"  class="btn2 btn-green">See <?php echo get_the_title($id) ?></a>
+                          </div>
+                        <?php } ?>
+                         
+                       </div> 
+                      <?php } ?>
+                    </div>
+                  </div> 
+                  <?php } ?>
+
+                  <?php if ( $featImage ) { ?>
+                  <div class="imagecol block">
+                  <div class="imagediv" style="background-image:url('<?php echo $featImage[0] ?>')">
+                    <img src="<?php echo $featImage[0] ?>" >
+                  </div>
+                </div> 
+                  <?php } ?>
+                </div>
+                <?php } ?>
+
+            <?php } else {
+              
+              if( !in_array($post_id,$mergedIds) ) { ?>
+
+                <?php if( ($title || $text) ||  $featImage ) { ?>
+                <div data-pid="<?php echo $post_id ?>" class="content-block <?php echo $column_class ?>">
+                  <?php if ( $title || $text ) { ?>
+                  <div class="textcol block">
+                    <div class="inside">
+                      <?php if ($title) { ?>
+                       <h2 class="rb_title"><span><b><?php echo $title ?></b></span></h2> 
+                      <?php } ?>
+
+                      <?php if ($text) { ?>
+                       <div class="rb_content"><?php echo anti_email_spam($text); ?></div> 
+                      <?php } ?>
+
+                      <?php //if ($buttons) { ?>
+                       <div class="rb_buttons">
+                         <a href="<?php bloginfo('url'); ?>/competitions"  class="btn2 btn-green">SEE ALL COMPETITIONS</a>
+                       </div> 
+                      <?php //} ?>
+                    </div>
+                  </div> 
+                  <?php } ?>
+
+                  <?php if ( $featImage ) { ?>
+                  <div class="imagecol block">
+                  <div class="imagediv" style="background-image:url('<?php echo $featImage[0] ?>')">
+                    <img src="<?php echo $featImage[0] ?>" >
+                  </div>
+                </div> 
+                  <?php } ?>
+                </div>
+                <?php } ?>
+
+
+              <?php }
+
+            }
+          } else { ?>
+
+            <?php if( ($title || $text) ||  $featImage ) { ?>
+            <div data-pid="<?php echo $post_id ?>" class="content-block <?php echo $column_class ?>">
+              <?php if ( $title || $text ) { ?>
+              <div class="textcol block">
+                <div class="inside">
+                  <?php if ($title) { ?>
+                   <h2 class="rb_title"><span><b><?php echo $title ?></b></span></h2> 
+                  <?php } ?>
+
+                  <?php if ($text) { ?>
+                   <div class="rb_content"><?php echo anti_email_spam($text); ?></div> 
+                  <?php } ?>
+
+                  <?php //if ($buttons) { ?>
+                   <div class="rb_buttons">
+                     <a href="<?php bloginfo('url'); ?>/competitions"  class="btn2 btn-green">SEE ALL COMPETITIONS</a>
+                   </div> 
+                  <?php //} ?>
+                </div>
+              </div> 
+              <?php } ?>
+
+              <?php if ( $featImage ) { ?>
+              <div class="imagecol block">
               <div class="imagediv" style="background-image:url('<?php echo $featImage[0] ?>')">
                 <img src="<?php echo $featImage[0] ?>" >
               </div>
             </div> 
-	            <?php } ?>
-	          </div>
-	          <?php } ?>
-		      
-		      
-		      <!-- <div data-postid="<?php echo $post_id ?>" class="column <?php echo $div3rdcol ?>">
-		        <div class="inner">
-		          <div class="image">
-		            <figure<?php echo $imageStyle ?>>
-		              <a href="<?php echo $pagelink ?>"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/square.png" class="helper" alt=""></a></figure>
-		          </div>
-		          <h4 class="title"><a href="<?php echo $pagelink ?>"><?php the_title(); ?></a></h4>
-		        </div>
-		      </div> -->
+              <?php } ?>
+            </div>
+            <?php } ?>
 
-		      
+          <?php }
 
-		    <?php $i++; endwhile; wp_reset_postdata(); ?>
+		
+		   $i++; endwhile; wp_reset_postdata(); ?>
 		      
 		    
 		  </div>

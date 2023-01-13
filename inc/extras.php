@@ -222,13 +222,14 @@ function parse_external_url( $url = '', $internal_class = 'internal-link', $exte
 //     acf_add_options_page();
 // }
 /* Options page under custom post type */
-// if( function_exists('acf_add_options_page') ) {
-//     acf_add_options_sub_page(array(
-//         'page_title'    => 'People Options',
-//         'menu_title'    => 'People Options',
-//         'parent_slug'   => 'edit.php?post_type=people'
-//     ));
-// }
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Combine Competitions',
+        'menu_title'    => 'Combine Competitions',
+        'position'      => 4,
+        'parent_slug'   => 'edit.php?post_type=competition'
+    ));
+}
 // function be_acf_options_page() {
 //     if ( ! function_exists( 'acf_add_options_page' ) ) return;
     
@@ -251,7 +252,7 @@ function parse_external_url( $url = '', $internal_class = 'internal-link', $exte
 //         acf_add_options_page($options);
 //     }
 // }
-// add_action( 'acf/init', 'be_acf_options_page' );
+//add_action( 'acf/init', 'be_acf_options_page' );
 
 
 function get_images_dir($fileName=null) {
