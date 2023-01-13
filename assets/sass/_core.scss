@@ -1073,7 +1073,9 @@ body.page-id-62 {
     }
     .rb_buttons {
       margin-top: 25px;
-      margin-left: -10px;
+      @include tab {
+        margin-left: -10px;
+      }
       a {
         text-decoration: none;
       }
