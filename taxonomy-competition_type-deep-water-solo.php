@@ -24,6 +24,7 @@ if($soon !== 'soon') :?>
 
 
 		<?php 
+    $termID = get_queried_object();
 		$n=1;
 		if ( have_posts() ) { ?>
 		<div class="repeatable-content-blocks dws">
@@ -193,7 +194,50 @@ if($soon !== 'soon') :?>
 
 		
 		   $i++; endwhile; wp_reset_postdata(); ?>
-		      
+		        
+
+
+
+            <?php 
+
+            // $title = get_field('extra_card_title', 'competition_type_'.$termID);
+            // $text = get_field('extra_card_description', 'competition_type_'.$termID);
+            // $featImage = get_field('extra_card_image', 'competition_type_'.$termID);
+
+            if( ($title || $text) ||  $featImage ) { ?>
+            <div data-pid="<?php echo $post_id ?>" class="content-block <?php echo $column_class ?>">
+              <?php if ( $title || $text ) { ?>
+              <div class="textcol block">
+                <div class="inside">
+                  <?php if ($title) { ?>
+                   <h2 class="rb_title"><span><b><?php echo $title ?></b></span></h2> 
+                  <?php } ?>
+
+                  <?php if ($text) { ?>
+                   <div class="rb_content"><?php echo anti_email_spam($text); ?></div> 
+                  <?php } ?>
+
+                  <?php //if ($buttons) { ?>
+                   <div class="rb_buttons">
+                     <a href="<?php bloginfo('url'); ?>/competitions"  class="btn2 btn-green">SEE ALL COMPETITIONS</a>
+                   </div> 
+                  <?php //} ?>
+                </div>
+              </div> 
+              <?php } ?>
+
+              <?php if ( $featImage ) { ?>
+              <div class="imagecol block">
+              <div class="imagediv" style="background-image:url('<?php echo $featImage[0] ?>')">
+                <img src="<?php echo $featImage[0] ?>" >
+              </div>
+            </div> 
+              <?php } ?>
+            </div>
+            <?php } ?>
+
+
+
 		    
 		  </div>
 
