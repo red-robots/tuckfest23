@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Schedule (new layout)
+ * Template Name: Schedule (new layout) BAK
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *

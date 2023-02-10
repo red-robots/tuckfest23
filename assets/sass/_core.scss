@@ -2447,15 +2447,18 @@ div.vendors {
 
   }
   .ven {
-    width: 30%;
+    // width: 30%;
+    width: 65%;
     aspect-ratio: 3/2;
     object-fit: contain;
-    margin: 10px 10px 20px 10px;
-    flex-basis: 30%;
+    margin: 0 auto;
+    // flex-basis: 30%;
+    flex-basis: 65%;
 
     @media only screen and (min-width: $tabwidth) {
       width: 22%;
       flex-basis: 22%;
+      margin: 10px 10px 20px 10px;
     }
     img {
       width: 100%;
