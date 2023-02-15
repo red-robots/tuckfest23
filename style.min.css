@@ -1703,7 +1703,7 @@ section.schedule-music .col{-ms-flex-preferred-size:22%;flex-basis:22%}
 .schedule ul,section.schedule-music ul{margin:0;padding:0}
 .schedule ul li,section.schedule-music ul li{margin:0;padding:0}
 .schedule ul li:first-child a,section.schedule-music ul li:first-child a{background-color:#407078}
-.schedule ul a,section.schedule-music ul a{background-color:#508f9a;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-decoration:none;padding:15px;-webkit-box-shadow:0 0 15px 10px rgba(0,0,0,0) inset;box-shadow:0 0 15px 10px rgba(0,0,0,0) inset}
+.schedule ul a,section.schedule-music ul a{background-color:#9e8c1f;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-decoration:none;padding:15px;-webkit-box-shadow:0 0 15px 10px rgba(0,0,0,0) inset;box-shadow:0 0 15px 10px rgba(0,0,0,0) inset}
 .schedule ul a div.time,section.schedule-music ul a div.time{width:100%}
 .schedule ul a *,section.schedule-music ul a *{text-decoration:none}
 .schedule ul a:hover,section.schedule-music ul a:hover{-webkit-box-shadow:0 0 10px 10px rgba(0,0,0,0.1) inset;box-shadow:0 0 10px 10px rgba(0,0,0,0.1) inset}

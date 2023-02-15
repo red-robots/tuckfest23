@@ -1898,6 +1898,7 @@ section.schedule-music {
       a {
         text-decoration: none;
         color: $yellowish;
+        // color: $secondary;
         // border-bottom: 1px solid $color-blue;
         transition: all ease .2s;
         &:hover {
@@ -1946,7 +1947,8 @@ section.schedule-music {
       background-color: $primary;
     }
     a {
-      background-color: #508f9a;
+      // background-color: #508f9a;
+      background-color: $secondary;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
