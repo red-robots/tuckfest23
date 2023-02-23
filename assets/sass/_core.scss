@@ -2491,3 +2491,23 @@ div.vendors {
     padding: 5px 25px;
   }
 }
+.footer-sponsors {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  li {
+    list-style-type: none;
+    max-width: 150px;
+    img {
+      width: 100%;
+    }
+  }
+  a {
+    display: block;
+  }
+}

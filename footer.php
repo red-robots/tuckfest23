@@ -38,6 +38,31 @@
         <?php } ?>
       </div>
     </div>
+
+    <?php 
+      $sponsors_text = get_field("footer_sponsors_text","option"); 
+      if( have_rows('footer_sponsors', 'option') ) : ?>
+      <div class="footer-sponsors sponsors container rotator">
+        <?php if ($sponsors_text) { ?>
+          <div class="sponsor-text"><?php echo $sponsors_text ?></div> 
+        <?php } ?>
+        
+        <?php while( have_rows('footer_sponsors', 'option') ) : the_row();
+
+          $icon = get_sub_field('icon', 'option');
+          $link = get_sub_field('link', 'option');
+
+        ?>
+            <li>
+              <a href="<?php echo $link; ?>" target="_blank">
+                <img src="<?php echo $icon['url']; ?>">
+              </a>
+            </li>
+          <?php endwhile; ?>
+        
+      </div>
+      <?php endif; ?>
+
 	</footer><!-- #colophon -->
 	
 </div><!-- #page -->
