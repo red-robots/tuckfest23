@@ -26,7 +26,21 @@ if($soon !== 'soon') :?>
 		<?php 
     $termID = get_queried_object();
 		$n=1;
-		if ( have_posts() ) { ?>
+    $wp_query = new WP_Query();
+    $wp_query->query(array(
+      'post_type'=>'competition',
+      'posts_per_page' => -1,
+      'order_by' => 'menu_order',
+      'order' => 'ASC',
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'competition_type', // your custom taxonomy
+          'field' => 'slug',
+          'terms' => array( 'deep-water-solo' ) // the terms (categories) you created
+        )
+      )
+    ));
+		if ( $wp_query->have_posts() ) { ?>
 		<div class="repeatable-content-blocks dws">
 
 		  
@@ -56,7 +70,7 @@ if($soon !== 'soon') :?>
 
 
 		      $current_count = count( get_posts($args) );
-		      $i=1; while ( have_posts() ) : the_post(); 
+		      $i=1; while ( $wp_query->have_posts() ) : $wp_query->the_post(); 
 		      $post_id = get_the_ID();
 		      $thumbnail_id = get_post_thumbnail_id($post_id);
 		      $featImage = wp_get_attachment_image_src($thumbnail_id,'large');
