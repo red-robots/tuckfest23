@@ -1803,6 +1803,7 @@ section.photo-gallery .gal-thumb{width:33.333%}
 .banner-subpage .banner-image.mobile{display:none}
 .banner-subpage .banner-image.desktop{display:block}
 .feeds-wrapper{padding:50px 0 400px 0}
+.repeatable-content-blocks .content-block .textcol.athlete{padding:100px 30px}
 .repeatable-content-blocks .content-block .imagecol .imagediv{height:100%}
 .flexcol-content{margin:0 -20px}
 .flexcol-content .flexcol .inside{padding:5vw}
