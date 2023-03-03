@@ -218,7 +218,12 @@ if($soon !== 'soon') :?>
             // $text = get_field('extra_card_description', 'competition_type_'.$termID);
             // $featImage = get_field('extra_card_image', 'competition_type_'.$termID);
 
-            if( ($title || $text) ||  $featImage ) { ?>
+            
+            // Commenting this out. Getting repeating tiles for some reason...
+            //if( ($title || $text) ||  $featImage ) { 
+            if( $someThingCrazy ) {
+              ?>
+            
             <div data-pid="<?php echo $post_id ?>" class="content-block <?php echo $column_class ?>">
               <?php if ( $title || $text ) { ?>
               <div class="textcol block">

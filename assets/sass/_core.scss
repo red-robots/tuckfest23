@@ -2172,7 +2172,7 @@ section.schedule-music {
   ul.sub-menu {
     display: none;
     margin: 0 0;
-    padding: 0 0;
+    padding: 0 0 3px 0;
     list-style: none;
     position: relative;
     top: 5px;
@@ -2181,6 +2181,9 @@ section.schedule-music {
       float: left;
       text-align: left;
       padding: 0 14px;
+      &.athlete-link {
+        background-color: rgba(#fff, .3);
+      }
     }
     &.active {
       display: inline-block;
