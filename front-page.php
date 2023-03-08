@@ -10,7 +10,7 @@ get_header();
     <?php if ( get_the_content() ) { ?>
       <div class="hometext"><div class="inside"><?php the_content(); ?></div></div>
     <?php } ?>
-
+    
   </main>
 <?php endwhile; ?>  
 <?php

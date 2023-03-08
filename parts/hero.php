@@ -56,3 +56,38 @@
     
   <?php } ?>
 <?php } ?>
+<?php  if( have_rows( 'boxes' ) ) : ?>
+        <section class="extra-boxes">
+          <div class="home-buttons">
+              <div class="wrapper">
+                <div class="flexwrap">
+                  <?php while( have_rows( 'boxes' ) ): the_row();
+                    $box_color = get_sub_field('box_color');
+                    $title = get_sub_field('title');
+                    $link = get_sub_field('link');
+                    $image = get_sub_field('image'); 
+                    if( $box_color == 'orange') {
+                      $cClass = 'orange';
+                    } elseif( $box_color == 'blue') {
+                      $cClass = 'blue';
+                    } elseif( $box_color == 'red') {
+                      $cClass = 'red';
+                    } else {
+                      $cClass = 'green';
+                    }
+                    ?>
+                    <div class="button extra">
+                      <a href="<?php echo $link ?>">
+                        <img src="<?php echo $image['url'] ?>">
+                        <div class="bottom <?php echo $cClass; ?>">
+                          <div class="title"><?php echo $title; ?></div>
+                        </div>
+                      </a>
+                    </div>
+                  <?php endwhile; ?>
+                </div>
+              </div>
+            </div>
+        </section>
+    
+<?php endif; ?>

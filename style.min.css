@@ -1455,10 +1455,18 @@ body.home .site{padding-top:50px}
 .home-buttons{width:100%;float:left;padding-top:30px;padding-bottom:60px}
 .home-buttons .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}
 .home-buttons .button{width:100%;overflow:hidden}
+.home-buttons .button.extra{border-radius:100px}
+.home-buttons .button.extra:hover .bottom .title{padding:20px 0}
 .home-buttons .button a{display:block;width:100%;float:left;position:relative;background-position:bottom center;background-size:contain;background-repeat:no-repeat}
-.home-buttons .button a img{width:100%;height:auto;float:left}
+.home-buttons .button a img{width:100%;height:auto;float:left;position:relative;z-index:10}
 .home-buttons .button a i{display:block;width:100%;background-position:bottom center;background-size:contain;background-repeat:no-repeat;-webkit-transition:all ease-in-out .2s;transition:all ease-in-out .2s}
 .home-buttons .button a .button-text{display:block;width:100%;position:absolute;left:0;bottom:10vw;z-index:10;font-family:"Tjoekil",cursive;font-size:2.5em;line-height:1.1;letter-spacing:3px;text-align:center;text-transform:uppercase;color:#f0d6b5}
+.home-buttons .button a .bottom{width:100%;position:absolute;bottom:0;left:0;z-index:20}
+.home-buttons .button a .bottom.orange{background-color:#eb8c00}
+.home-buttons .button a .bottom.blue{background-color:#407078}
+.home-buttons .button a .bottom.red{background-color:#e86349}
+.home-buttons .button a .bottom.green{background-color:#9e8c1f}
+.home-buttons .button a .bottom .title{width:100%;padding:80px 0;-webkit-transition:all ease .2s;transition:all ease .2s;font-family:"Tjoekil",cursive;font-size:2.5em;line-height:1.1;letter-spacing:3px;text-align:center;text-transform:uppercase;color:#f0d6b5}
 .home-buttons #registration .e1{position:absolute;bottom:0;left:0;width:100%;height:100%;background-image:url("assets/images/graphics/graphic1_1.svg");background-size:cover;z-index:5;border-top:4px solid #f0d6b5}
 .home-buttons #registration .e2{position:absolute;top:0;left:0;width:100%;height:100%;background-image:url("assets/images/graphics/graphic1_2.svg");background-position:center;z-index:6}
 .home-buttons #registration .e3{position:absolute;top:0;left:0;width:100%;height:100%;background-image:url("assets/images/graphics/graphic1_3.svg");background-position:center}
@@ -1785,6 +1793,7 @@ div.vendors .ven img:hover{-webkit-transform:scale(1.05);transform:scale(1.05)}
 }@media(min-width:667px){nav.mobilemenu{padding:120px 90px 70px 90px}
 }@media(min-width:820px){body{font-size:14px}
 .home-buttons .button{width:33.33%}
+.home-buttons .button.extra{width:33%;margin:1px}
 .home-buttons .button a .button-text{bottom:2.5vw}
 .feeds-wrapper .column{width:33.333%}
 .repeatable-content-blocks .content-block.half .textcol{width:calc(40% - 8px);display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-line-pack:center;align-content:center}
