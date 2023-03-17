@@ -14,6 +14,7 @@ $posttype = get_post_type();
 
 		<?php while ( have_posts() ) : the_post(); ?>
       <?php  
+      $course_iframe = get_field('course_iframe');
       $registrationLink = get_field("register_button","option");
       $eventStartDate = get_field("eventStartDate");
       $start_date = ($eventStartDate) ? date('l, M d, Y',strtotime($eventStartDate)) . ' <span>&ndash;</span> ' . date('h:i a',strtotime($eventStartDate)) : '';
@@ -65,6 +66,12 @@ $posttype = get_post_type();
           	</div>
           </div>
         </div> 
+        <?php } ?>
+
+        <?php if($course_iframe) { ?>
+          <section class="coursemap">
+            <?php echo $course_iframe; ?>
+          </section>
         <?php } ?>
 
         <?php if( have_rows('past_results') && $posttype === 'competition' ) { ?>

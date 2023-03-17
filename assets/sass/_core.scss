@@ -1433,10 +1433,14 @@ body {
         -webkit-transition: all ease .2s;
         transition: all ease .2s;
         text-decoration: none;
-        margin-right: 10px;
-        margin-left: 10px;
+        width: 100%;
         margin-bottom: 15px;
         text-align: center;
+        @media screen and (min-width: $tabwidth) {
+          margin-right: 10px;
+          margin-left: 10px;
+          width: auto;
+        }
         a {
           display: block;
           min-width: 230px;
@@ -1632,7 +1636,7 @@ ul.tabs-info {
   }
   span {
     display: inline-block;
-
+    
   }
   span.orange {
     background: $orange;
@@ -1640,8 +1644,12 @@ ul.tabs-info {
   }
   span.yellow {
     background: $yellow_orange;
+    width: 100%;
     a:hover {
       background:shade($yellow_orange,30%);
+    }
+    @media screen and (min-width: $tabwidth) {
+      width: auto;
     }
   }
   span.red {
@@ -2558,5 +2566,15 @@ div.vendors {
   }
   a {
     display: block;
+  }
+}
+section.coursemap {
+  width: 100%;
+  // padding: 20px;
+  margin: 0 0 20px 0;
+  padding-top: 20px;
+  float: left;
+  @media only screen and (min-width: $tabwidth) {
+    // padding: 30px;
   }
 }
