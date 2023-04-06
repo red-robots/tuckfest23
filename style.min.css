@@ -1504,6 +1504,7 @@ body.subpage #primary{min-height:30em}
 .banner-subpage.noimage .banner-button{position:relative;top:-5px}
 .entry-content{font-family:"Catamaran",sans-serif;font-weight:normal;word-spacing:.3em}
 .entry-content.page-content{max-width:600px;padding-top:40px;margin:0 auto;padding:20px;background-color:rgba(255,255,255,0.5)}
+.spotify-wrap{width:100%;margin:40px 0 0 0;float:left}
 body.page-id-62 .entry-title:before,body.page-id-62 .entry-title:after{content:"";display:block;width:30vw;height:100%;position:absolute;top:0;background-image:none;background-position:center;background-repeat:no-repeat;background-size:cover}
 .entry-title{background:#9e8c1f;position:relative;text-align:center;border-top:5px solid #f0d6b5;border-bottom:5px solid #f0d6b5;position:relative}
 .entry-title:before,.entry-title:after{content:"";display:block;width:30vw;height:100%;position:absolute;top:0;background-image:url("assets/images/titlebg.svg");background-position:center;background-repeat:no-repeat;background-size:cover}
