@@ -131,6 +131,11 @@ jQuery(document).ready(function ($) {
     width: '95%',
     height: '95%'
   });
+  $('a.map').colorbox({
+    rel: 'gal',
+    width: '95%',
+    height: '95%'
+  });
   $('a.colorbox').colorbox({
     inline: true,
     width: "90%"
