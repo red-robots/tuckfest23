@@ -2588,3 +2588,10 @@ section.coursemap {
     // padding: 30px;
   }
 }
+.btncenter {
+  text-align: center;
+  .buttondiv {
+    width: auto;
+    display: inline-block;
+  }
+}

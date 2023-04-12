@@ -272,20 +272,43 @@ if($soon !== 'soon') :?>
         $bottomText = (isset($bottom['title']) && $bottom['title']) ? $bottom['title'] : '';
         $bottomURL = (isset($bottom['url']) && $bottom['url']) ? $bottom['url'] : '';
         $bottomTarget = (isset($bottom['target']) && $bottom['target']) ? $bottom['target'] : '_self';
+
+        $bottomExtraBtn = get_field('more_cta_buttons','option');
+        // echo '<pre>';
+        // print_r($bottomExtraBtn);
+        // echo '</pre>';
+
         ?>
 
         <?php if ($dws_blurb || ($bottomText && $bottomURL) ) { ?>
         <div class="bottom-dws-blurb">
-          <div class="wrapper">
+          <div class="wrapper ">
 
             <?php if ($dws_blurb) { ?>
             <div class="blurb"><?php echo $dws_blurb ?></div> 
             <?php } ?>
         
             <?php if ($bottomText && $bottomURL) { ?>
+              <div class="btncenter">
               <div class="buttondiv">
                 <a href="<?php echo $bottomURL ?>" target="<?php echo $bottomTarget ?>" class="ctaBtn btn-green"><?php echo $bottomText ?></a>
               </div>
+              <?php if( $bottomExtraBtn ){ ?>
+                <?php foreach(  $bottomExtraBtn as $btn ){ 
+                  $bottomText = (isset($btn['link']['title']) && $btn['link']['title']) ? $btn['link']['title'] : '';
+                  $bottomURL = (isset($btn['link']['url']) && $btn['link']['url']) ? $btn['link']['url'] : '';
+                  $bottomTarget = (isset($btn['link']['target']) && $btn['link']['target']) ? $btn['link']['target'] : '_self';
+
+                  // echo '<pre>';
+                  // print_r($btn);
+                  // echo '</pre>';
+                  ?>
+                  <div class="buttondiv">
+                  <a href="<?php echo $bottomURL ?>" target="<?php echo $bottomTarget ?>" class="ctaBtn btn-green"><?php echo $bottomText ?></a>
+                </div>
+                <?php } ?>
+              <?php } ?>
+            </div><!-- btn center -->
             <?php } ?>
             
           </div>
