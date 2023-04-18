@@ -81,6 +81,7 @@ if( $queried_object->slug == 'thursday' ) {
 	$actTime = '10:00 am - 6:00 pm';
 }elseif( $queried_object->slug == 'friday' ) {
 	$pp = get_field('friday_schedule', 'option');
+	$vv = get_field('friday_schedule_vv', 'option');
 	$startTime = $friTime;
 	$EndTime = $friEndTime;
 	$regStart = get_field('friday_start', 'option');
@@ -91,6 +92,7 @@ if( $queried_object->slug == 'thursday' ) {
 	$actTime = '10:00 am - 7:00 pm';
 }elseif( $queried_object->slug == 'saturday' ) {
 	$pp = get_field('saturday_schedule', 'option');
+	$vv = get_field('saturday_schedule_vv', 'option');
 	$startTime = $satTime;
 	$EndTime = $satEndTime;
 	$regStart = get_field('saturday_start', 'option');
@@ -101,6 +103,7 @@ if( $queried_object->slug == 'thursday' ) {
 	$actTime = '10:00 am - 7:00 pm';
 }elseif( $queried_object->slug == 'sunday' ) {
 	$pp = get_field('sunday_schedule', 'option');
+	$vv = get_field('sunday_schedule_vv', 'option');
 	$startTime = $sunTime;
 	$EndTime = $sunEndTime;
 	$regStart = get_field('sunday_start', 'option');
@@ -190,7 +193,14 @@ if( $i == 1 ) {
 			</div>
 		</a>
 	</li>
-	<li>
+	<li class="item">
+		<a href="" style="background-color: #EB8B01;">
+			<div class="title first">
+				<?php echo $vv; ?>
+			</div>
+		</a>
+	</li>
+	<li class="item">
 		<a href="<?php echo $wwAct; ?>" target="_blank">
 			<div class="title first">
 				Whitewater Center Activities
